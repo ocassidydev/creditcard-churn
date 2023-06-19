@@ -50,7 +50,7 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 
 ## Summary
 
-creditcard-churn is a dashboard application that enables a bank to analyse various aspects of prospective credit card customers (prospects) to determine if they will be retained as customers and how profitable they will be overall.
+creditcard-attrition is a dashboard application that enables a bank to analyse various aspects of prospective credit card customers (prospects) to determine if they will be retained as customers and how profitable they will be overall.
 
 - gain visual insight into what aspects of prospect's demographics and their chosen product offerings influence their tendency to churn
 - allows the company to determine the probability a prospect will churn or not based on information the prospect supplies
@@ -90,9 +90,28 @@ The dataset was sourced from the <a href="https://www.kaggle.com/datasets/sakshi
 | Total_Ct_Chng_Q4_Q1      | Usage variable - relative change in transaction count on card between previous quarters     | Positive float: range 0-3.71                              |
 | Avg_Utilization_Ratio    | Usage variable - Customers average ratio between revolving balance and credit limit on card | Positive float: range 0-1                                 |
 
+- **Project Terms & Jargon**
+  - A customer is a person holding a credit card with the bank
+  - A prospect is a prospective customer
+  - An attritioned customer is one who closed their account
+  - A relationship describes an individual service that a customer uses with the bank. The credit card account is a relationship, of which customers may have additional relationships (e.g. savings account, mortgage, etc.)
+  - Utilization ratio is the ratio between a customers credit card balance and their credit card limit, 0 meaning no debt whatsoever and 1 meaning they have "maxed out"
+
 ## Business Requirements
 
-- Describe your business requirements
+A fictitious client for this project is a highly data-driven bank that is seeking to improve customer retention and profitability in its credit card service. When a customer enters a credit card relationship with the bank, the bank opens a **credit line** for them that they may use at any time to make purchases on the card, which adds to the card's balance. Customers will then service this credit by repayments and may pay the credit off partially or in full if they so choose, all with some additional fee to allow the bank to profit from providing the service. This process of adding to the card balance with purchases and drawing it down with repayments gives rise to a **revolving balance** - the portion of the account that is unpaid at the end of a billing cycle (typically one month long), of which interest is applied to.
+
+Each credit card customer is restricted in the amount they may add to their credit card balance by a value called a **credit limit**. This is the size of the credit line that the bank views as viable to leave open for the customer, as well the maximum amount the bank calculates to be safe to lend to the customer. In terms of the bank's business, it is unprofitable for credit lines to go unused, and would prefer a situation where all customers have maxed out credit cards that they pay interest on, ie. the customers' **utilization ratio**, the ratio of revolving balance to credit limit, is kept as close to 1 as possible.
+
+If a customer **attritions** (ie. closes their credit card account), this hurts the banks profits as the customer will have paid down their card balance in full rather than continually paying interest, may have unused credit lines the bank will need to reassign, and will also lower the banks potential pool of debtors going into the future. Preferably, the bank would like to have customers that will be retained, and if they are going to attrition, they would prefer they stay in the relationship with the bank for as many months as possible and have high utilization ratios in that time.
+
+The client has shared a customer database containing information pertaining to the above profitability considerations for each customer, paired with customer demographic data and the type of credit card product they are using.
+
+* 1 The client would like to better understand the patterns in the customer base so that the client can learn prospect demographics least likely to attrition. This will help their marketing team better target their advertising campaigns.
+
+* 2 The client would like to determine whether a given prospect will attrition. They would also like to know if a prospect is likely to attrition, how long they are likely to keep their account open for. This will allow the sales team to determine if changing the product offered to the prospect (credit limit and type of card) may influence said prospect to not attrition/maintain their account for longer.
+
+- 3 The client would like to determine the credit utilization based on prospect data. This will allow the bank to identify valuable prospects early on, which they may try to build customer loyalty with through offering targeted customer perks.
 
 ## Hypothesis and how to validate?
 
