@@ -109,7 +109,7 @@ If a customer **attritions** (ie. closes their credit card account), this hurts 
 
 The client has shared a customer database containing information pertaining to the above profitability considerations for each customer, paired with customer demographic data and the type of credit card product they are using.
 
-- **1** The client would like to better understand the patterns in the customer base so that the client can learn prospect demographics least likely to attrition. This will help their marketing team better target their advertising campaigns.
+- **1** The client would like to better understand the patterns in the customer base so that the client can learn the variables of a prospect least likely to attrition. This will help their marketing team better target their advertising campaigns and their sales teams to offer the right products.
 
 - **2** The client would like to determine whether a given prospect will attrition. They would also like to know if a prospect is likely to attrition, how long they are likely to keep their account open for. This will allow the sales team to determine if changing the product offered to the prospect (credit limit and type of card) may influence said prospect to not attrition/maintain their account for longer.
 
