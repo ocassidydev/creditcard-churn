@@ -190,8 +190,56 @@ Should either of the above tasks involve classification, cluster analysis of pro
 
 ## Dashboard Design
 
-- List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other item that your dashboard library supports.
-- Later, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but subsequently you used another plot type).
+### Page 1: Quick project summary
+
+- Quick summary of the project
+  - Project terminology
+  - Description of the dataset
+  - Business requirements, with some greater context the user can expand on
+
+### Page 2: Customer Attrition Study
+
+- Need this page to answer business requirment 1. Will need to display plots that correlate prospect demographic and product variables to attrition
+- Agreed with stakeholders that this page will:
+  - State business requirement 1
+  - Checkbox: data inspection (displays the number of rows and columns in dataset, as well as first ten rows of data)
+  - Displays most correlated demographic and product variables to attrition with conclusions of study
+  - Checkbox: Individual plots displaying attrition rates for each variable most correlated to attrition
+  - Checkbox: Parallel plots mapping correlated variables to attrition for full visualization of how customer base breaks down
+
+### Page 3: Prospect Attritionscope
+
+- State business requirements 2 and 3
+- Set of input widgets for setting the demographic/product variables of the prospect. The inputs are related to ML pipelines that will predict attrition, relationship length, and credit utilization ratio
+- "Run prediction" button that feeds the prospect's data into the ML pipelines. These will predict the probability of whether the prospect will attrition or not, and if it is likely that they attrition, what will be the length of their relationship. It will also serve the predicted credit utilization ratio of the given prospect.
+
+### Page 4: Project Hypotheses and Validation
+
+- We have two hypotheses regarding this dataset, which we will state and then display the results of testing them.
+
+* 1 - It's suspected that attritioned customers have short relationship times.
+* 2 - It's suspected that card category has some correlation with average utilization ratio.
+
+### Page 5: Predict Attrition
+
+- Considerations and conclusions after pipeline is trained
+- Present ML pipeline steps
+- Feature importance
+- Pipeline importance
+
+### Page 6: Predict Relationship
+
+- Considerations and conclusions after pipeline is trained
+- Present ML pipeline steps
+- Feature importance
+- Pipeline importance
+
+### Page 7: Predict Utilization
+
+- Considerations and conclusions after pipeline is trained
+- Present ML pipeline steps
+- Feature importance
+- Pipeline importance
 
 ## Unfixed Bugs
 
