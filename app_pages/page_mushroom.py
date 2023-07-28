@@ -70,17 +70,21 @@ def DrawInputsWidgets():
     df = load_mushroom_data()
     percentageMin, percentageMax = 0.4, 2.0
 
-    # we create input widgets only for 19 features
+    # we create input widgets only for 22 features
     col1, col2, col3, col4 = st.beta_columns(4)
     col5, col6, col7, col8 = st.beta_columns(4)
     col9, col10, col11, col12 = st.beta_columns(4)
     col13, col14, col15, col16 = st.beta_columns(4)
     col17, col18, col19, col20 = st.beta_columns(4)
+    col21, col22, col23, col24 = st.beta_columns(4)
 
     # We are using these features to feed the ML pipeline - values copied from check_variables_for_UI() result
-    # {'cap-color', 'stalk-color-below-ring', 'veil-type', 'stalk-root', 'stalk-shape', 'cap-surface', 'stalk-color-above-ring',
-    # 'ring-number', 'bruises', 'gill-spacing', 'population', 'gill-size', 'veil-color', 'cap-shape', 'habitat', 'stalk-surface-below-ring',
-    # 'ring-type', 'stalk-surface-above-ring', 'odor'}
+    # 'cap-shape', 'cap-surface', 'cap-color', 'bruises', 'odor',
+    # 'gill-attachment', 'gill-spacing', 'gill-size', 'gill-color',
+    # 'stalk-shape', 'stalk-root', 'stalk-surface-above-ring',
+    # 'stalk-surface-below-ring', 'stalk-color-above-ring',
+    # 'stalk-color-below-ring', 'veil-type', 'veil-color', 'ring-number',
+    # 'ring-type', 'spore-print-color', 'population', 'habitat'
 
     # create an empty DataFrame, which will be the live data
     X_live = pd.DataFrame([], index=[0])
@@ -88,110 +92,6 @@ def DrawInputsWidgets():
     # from here on we draw the widget based on the variable
     # and set initial values
     with col1:
-        feature = "cap-color"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col2:
-        feature = "stalk-color-below-ring"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col3:
-        feature = "veil-type"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col4:
-        feature = "stalk-root"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col5:
-        feature = "stalk-shape"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col6:
-        feature = "cap-surface"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col7:
-        feature = "stalk-color-above-ring"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col8:
-        feature = "ring-number"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col9:
-        feature = "bruises"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col10:
-        feature = "gill-spacing"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col11:
-        feature = "population"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col12:
-        feature = "gill-size"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col13:
-        feature = "veil-color"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col14:
         feature = "cap-shape"
         st_widget = st.selectbox(
             label=feature,
@@ -199,31 +99,87 @@ def DrawInputsWidgets():
         )
     X_live[feature] = st_widget
 
-    with col15:
-        feature = "habitat"
+    with col2:
+        feature = "cap-surface"
         st_widget = st.selectbox(
             label=feature,
             options=df[feature].unique()
         )
     X_live[feature] = st_widget
 
-    with col16:
-        feature = "stalk-surface-below-ring"
+    with col3:
+        feature = "cap-color"
         st_widget = st.selectbox(
             label=feature,
             options=df[feature].unique()
         )
     X_live[feature] = st_widget
 
-    with col17:
-        feature = "ring-type"
+    with col4:
+        feature = "bruises"
         st_widget = st.selectbox(
             label=feature,
             options=df[feature].unique()
         )
     X_live[feature] = st_widget
 
-    with col18:
+    with col5:
+        feature = "odor"
+        st_widget = st.selectbox(
+            label=feature,
+            options=df[feature].unique()
+        )
+    X_live[feature] = st_widget
+
+    with col6:
+        feature = "gill-attachment"
+        st_widget = st.selectbox(
+            label=feature,
+            options=df[feature].unique()
+        )
+    X_live[feature] = st_widget
+
+    with col7:
+        feature = "gill-spacing"
+        st_widget = st.selectbox(
+            label=feature,
+            options=df[feature].unique()
+        )
+    X_live[feature] = st_widget
+
+    with col8:
+        feature = "gill-size"
+        st_widget = st.selectbox(
+            label=feature,
+            options=df[feature].unique()
+        )
+    X_live[feature] = st_widget
+
+    with col9:
+        feature = "gill-color"
+        st_widget = st.selectbox(
+            label=feature,
+            options=df[feature].unique()
+        )
+    X_live[feature] = st_widget
+
+    with col10:
+        feature = "stalk-shape"
+        st_widget = st.selectbox(
+            label=feature,
+            options=df[feature].unique()
+        )
+    X_live[feature] = st_widget
+
+    with col11:
+        feature = "stalk-root"
+        st_widget = st.selectbox(
+            label=feature,
+            options=df[feature].unique()
+        )
+    X_live[feature] = st_widget
+
+    with col12:
         feature = "stalk-surface-above-ring"
         st_widget = st.selectbox(
             label=feature,
@@ -231,13 +187,86 @@ def DrawInputsWidgets():
         )
     X_live[feature] = st_widget
 
-    with col19:
-        feature = "odor"
+    with col13:
+        feature = "stalk-surface-below-ring"
         st_widget = st.selectbox(
             label=feature,
             options=df[feature].unique()
         )
     X_live[feature] = st_widget
+
+    with col14:
+        feature = "stalk-color-above-ring"
+        st_widget = st.selectbox(
+            label=feature,
+            options=df[feature].unique()
+        )
+    X_live[feature] = st_widget
+
+    with col15:
+        feature = "stalk-color-below-ring"
+        st_widget = st.selectbox(
+            label=feature,
+            options=df[feature].unique()
+        )
+    X_live[feature] = st_widget
+
+    with col16:
+        feature = "veil-type"
+        st_widget = st.selectbox(
+            label=feature,
+            options=df[feature].unique()
+        )
+    X_live[feature] = st_widget
+
+    with col17:
+        feature = "veil-color"
+        st_widget = st.selectbox(
+            label=feature,
+            options=df[feature].unique()
+        )
+    X_live[feature] = st_widget
+
+    with col18:
+        feature = "ring-number"
+        st_widget = st.selectbox(
+            label=feature,
+            options=df[feature].unique()
+        )
+    X_live[feature] = st_widget
+
+    with col19:
+        feature = "ring-type"
+        st_widget = st.selectbox(
+            label=feature,
+            options=df[feature].unique()
+        )
+    X_live[feature] = st_widget
+
+    with col20:
+        feature = "spore-print-color"
+        st_widget = st.selectbox(
+            label=feature,
+            options=df[feature].unique()
+        )
+    X_live[feature] = st_widget
+
+    with col21:
+        feature = "population"
+        st_widget = st.selectbox(
+            label=feature,
+            options=df[feature].unique()
+        )
+    X_live[feature] = st_widget
+
+    with col22:
+        feature = "habitat"
+        st_widget = st.selectbox(
+            label=feature,
+            options=df[feature].unique()
+        )
+    X_live[feature] = st_widget
+
     # st.write(X_live)
 
     return X_live
