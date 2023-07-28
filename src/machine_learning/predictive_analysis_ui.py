@@ -4,7 +4,7 @@ import streamlit as st
 def predict_edible(X_live, edible_features, edible_pipeline_dc_fe, edible_pipeline_model):
 
     # from live data, subset features related to this pipeline
-    X_live_edible = X_live.filter(edible_features)
+    X_live_edible = X_live.copy()
 
     # apply data cleaning / feat engine pipeline to live data
     X_live_edible_dc_fe = edible_pipeline_dc_fe.transform(X_live_edible)
