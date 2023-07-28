@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from src.data_management import load_mushroom_data, load_pkl_file
 from src.machine_learning.evaluate_clf import clf_performance
 
-def page_predict_churn_body():
+def page_predict_edible_body():
 
     version = 'v1'
     # load needed files

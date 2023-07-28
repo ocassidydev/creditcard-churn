@@ -12,4 +12,8 @@ app = MultiPage(app_name = "Mushroom Safety")
 
 app.add_page("Project Summary", page_summary_body)
 
+
+
+app.add_page("ML: Mushroom Edibility", page_predict_edible_body)
+
 app.run()
