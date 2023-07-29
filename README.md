@@ -1,192 +1,142 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-## Codeanywhere Template Instructions
-
-Welcome,
-
-This is the Code Institute student template for Codeanywhere. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
-
-You can safely delete the Gitpod Template Instructions section of this README.md file, and modify the remaining paragraphs for your own project. Please do read the Gitpod Template Instructions at least once, though! It contains some important information about Gitpod and the extensions we use.
-
-## How to use this repo
-
-1. Use this template to create your GitHub project repo
-
-1. Log into <a href="https://app.codeanywhere.com/" target="_blank" rel="noreferrer">CodeAnywhere</a> with your GitHub account.
-
-1. On your Dashboard, click on the New Workspace button
-
-1. Paste in the URL you copied from GitHub earlier
-
-1. Click Create
-
-1. Wait for the workspace to open. This can take a few minutes.
-
-1. Open a new terminal and <code>pip3 install -r requirements.txt</code>
-
-1. In the terminal type <code>pip3 install jupyter</code>
-
-1. In the terminal type <code>jupyter notebook --NotebookApp.token='' --NotebookApp.password=''</code> to start the jupyter server.
-
-1. Open port 8888 preview or browser
-
-1. Open the jupyter_notebooks directory in the jupyter webpage that has opened and click on the notebook you want to open.
-
-1. Click the button Not Trusted and choose Trust.
-
-Note that the kernel says Python 3. It inherits from the workspace so it will be Python-3.8.12 as installed by our template. To confirm this you can use <code>! python --version</code> in a notebook code cell.
-
-## Gitpod Reminders
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+# **Mushroom Safety**
+![Mushroom Image](https://i.pinimg.com/originals/83/1d/42/831d42fa56e68793b9cf4949d596c120.png)
 
 ## Summary
 
-creditcard-attritionscope is a dashboard application that enables a bank to analyse various aspects of prospective credit card customers (prospects) to determine if they will be retained as customers and how profitable they will be overall.
+<a href="https://mushroom-safety-a3c88f9ac249.herokuapp.com/">mushroom-safety</a> is a dashboard application that enables an wild mushroom harvesting business to analyse various properties of mushrooms to determine whether they are edible or poisonous. The project was agreed to achieve the following objectives for the company:
 
-- gain visual insight into what aspects of prospect's demographics and their chosen product offerings influence their tendency to churn
-- allows the company to determine the probability a prospect will churn or not based on information the prospect supplies
-- allows the company to determine how long a churned prospect will remain with the company
-- allows the company to predict a prospect's credit utilization ratio
+- gives the company visual insight into what aspects of mushrooms generally indicate if they are likely to be edible
+- allows the company to determine the probability a mushroom will be edible or not based on information that gan be gathered from visually categorizing the mushroom
+- allows the company to group similar mushroom types together
 
 ## Dataset Content
 
-The dataset was sourced from the <a href="https://www.kaggle.com/datasets/sakshigoyal7/credit-card-customers" target="_blank" rel="noreferrer">Credit Card customers dataset</a> on <a href="https://www.kaggle.com" target="_blank" rel="noreferrer">kaggle</a>. Each row represents a customer, with each column representing attributes regarding the customers, which include:
+The dataset was sourced from the <a href="https://www.kaggle.com/datasets/uciml/mushroom-classification" target="_blank" rel="noreferrer">Mushroom Classification dataset</a> on <a href="https://www.kaggle.com" target="_blank" rel="noreferrer">kaggle</a>. Each row represents a mushroom, with each column representing physical attributes of the mushrooms, which include:
 
-- Demographic data on the customer (age, sex, education status etc.)
-- Type of credit card product the customer uses (blue or silver, credit limit)
-- The customers card usage data (Balance on the credit card, change in transactions between previous quarters, credit utilization etc.)
-- Whether the customer has "attritioned" - if they have closed their account.
+- The appearance of the <a href="https://en.wikipedia.org/wiki/Pileus_(mycology)">cap</a>, the structure that forms the head of the mushrooma
+- The bruising on the mushroom
+- The mushroom's odor
+- The appearance of the mushroom's <a href="https://en.wikipedia.org/wiki/Lamella_(mycology)">gills</a>, the structures that hang vertically under the cap
+- The appearance of the mushroom's <a href="https://en.wikipedia.org/wiki/Stipe_(mycology)">stipe</a>, aka the stalk
+- The appearance of the mushroom's <a href="https://en.wikipedia.org/wiki/Veil_(mycology)">veil</a>, the membrane that covers the cap and the stalk
+- The appearance of the mushroom's <a href="https://en.wikipedia.org/wiki/Annulus_(mycology)">annulus</a>, the ring(s) that are seen on the stalk
+- The mushrooms's <a href="https://en.wikipedia.org/wiki/Spore_print">spore print</a> color
+- The mushroom's population, ie. how many of the same type were found in the area
+- The habitat the mushroom was found in.
 
 | Variable                    | Meaning                                                                                     | Units                                                                                        |
 | --------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| CLIENTNUM                   | Client number. Unique identifier for the customer holding the account                       | Positive integer that forms unique identifier of customer                                    |
-| Attrition_Flag              | Event variable describing if customer has closed account or not                             | String: 'Attrited Customer' for account closed, 'Existing Customer' for account still active |
-| Customer_Age                | Demographic variable - customer's age in years                                              | Positive integer: range 26-73                                                                |
-| Gender                      | Demographic variable - whether customer is male or female                                   | Single character: 'M' if male, 'F' if female                                                 |
-| Dependent_count             | Demographic variable - number of dependents of customer                                     | Positive integer: range 0-5                                                                  |
-| Education_Level             | Demographic variable - educational qualification of customer                                | String: 'Graduate', 'High School',                                                           |
-| Marital_Status              | Demographic variable - marital status of customer                                           | String: 'Married', 'Single', 'Divorced', 'Unknown'                                           |
-| Income_Category             | Demographic variable - annual income bracket of customer                                    | String: 'Less than $40K', '$40K - $60K', '$60K - $80K',                                      |
-| Card_Category               | Product variable - type of card                                                             | String: 'Blue', 'Silver', 'Gold', 'Platinum'                                                 |
-| Months_on_book              | Period of customer relationship with bank in months                                         | Positive integer: range 13-56                                                                |
-| Total_Relationship_Count    | Total number of bank products held by the customer (ie. other accounts)                     | Positive integer: range 1-6                                                                  |
-| Months_Inactive_12_mon      | Number of months customer was inactive in the last 12 months                                | Positive integer: range 0-6                                                                  |
-| Contacts_Count_12_mon       | Number of contacts in the last 12 months                                                    | Positive integer: range 0-6                                                                  |
-| Credit_Limit                | Product variable - credit limit on the customer's credit card                               | Positive integer: range 1440-34500                                                           |
-| Total_Revolving_Bal         | Usage variable - total revolving balance on the customer's credit card                      | Positive integer: range 0-2517                                                               |
-| Avg_Open_To_Buy             | Usage variable - 12 month average of customer's open to buy credit line                     | Positive integer: range 3-34500                                                              |
-| Total_Amt_Chng_Q4_Q1        | Usage variable - relative change in transaction amount on card between previous quarters    | Positive float: range 0.63-3.4                                                               |
-| Total_Trans_Amt             | Usage variable - total transaction amount on card in last 12 months                         | Positive integer: range 510-18500                                                            |
-| Total_Trans_Ct              | Usage variable - total count of transactions on card in last 12 months                      | Positive integer: range 10-139                                                               |
-| Total_Ct_Chng_Q4_Q1         | Usage variable - relative change in transaction count on card between previous quarters     | Positive float: range 0-3.71                                                                 |
-| Avg_Utilization_Ratio       | Usage variable - Customers average ratio between revolving balance and credit limit on card | Positive float: range 0-1                                                                    |
-| Naive*Bayes_Classifier*...  | Redundant column left in dataset by uploader, ignore                                        | n/a                                                                                          |
-| Naive*Bayes_Classifier*...2 | Redundant column left in dataset by uploader, ignore                                        | n/a                                                                                          |
+| class                   | Whether the mushroom is edible or poisonous                       | Character: 'e' - edible, 'p' - poisonous                                    |
+| cap-shape | The shape of the mushroom's cap | Character: 'b' - bell, 'c' - conical, 'x' - convex, 'f' - flat, 'k' - knobbed, 's' - sunken |
+| cap-surface | The consistency of the mushroom's cap surface | Character: 'f' - fibrous, 'g' - grooves, 'y' - scaly, 's' - smooth |
+| cap-color | The color of the mushroom's cap | Character: 'n' - brown, 'b' - buff, 'c' - cinnamon, 'g' - gray, 'r' - green, 'p' - pink, 'u' - purple, 'e' - red, 'w' - white, 'y' - yellow |
+| bruises | Whether the mushroom has bruises or not | Character: 't' - bruises, 'f' - no |
+| odor | The mushroom's smell | Character: 'a' - almond, 'l' - anise, 'c' - creosote, 'y' - fishy, 'f' - foul, 'm' - musty, 'n' - none, 'p' - pungent, 's' - spicy |
+| gill-attachment | How the mushroom's gills are attached to the stalk | Character: 'a' - attached, 'd' - descending, 'f' - free, 'n' - notched |
+| gill-spacing | How the mushroom's gills are spaced out | Character: 'c' - close, 'w' - crowded, 'd' - distant |
+| gill-size | The size of the mushroom's gills | Character: 'b' - broad, 'n' - narrow |
+| gill-color | The color of the mushroom's gills | Character: 'k' - black, 'n' - brown, 'b' - buff, 'h' - chocolate, 'g' - gray, 'r' - green, 'o' - orange, 'p' - pink, 'u' - purple, 'e' - red, 'w' - white, 'y' - yellow |
+| stalk-shape | The shape of the mushroom's stalk | Character: 'e' - enlarging, 't' - tapering |
+| stalk-root | The shape of the stalk's root | Character: 'b' - bulbous, 'c' - club, 'u' - cup, 'e' - equal, 'z' - rhizomorphs, 'r' - rooted, '?' - missing |
+| stalk-surface-above-ring | The consistency of the mushroom's stalk surface above the ring(s) | Character: 'f' - fibrous, 'y' - scaly, 'k' - silky, 's' - smooth |
+| stalk-surface-below-ring | The consistency of the mushroom's stalk surface below the ring(s) | Character: 'f' - fibrous, 'y' - scaly, 'k' - silky, 's' - smooth |
+| stalk-color-above-ring | The color of the mushroom's stalk above the ring(s) | Character: 'n' - brown, 'b' - buff, 'c' - cinnamon, 'g' - gray, 'o' - orange, 'p' - pink, 'e' - red, 'w' - white, 'y' - yellow |
+| stalk-color-below-ring | The color of the mushroom's stalk below the ring(s) | Character: 'n' - brown, 'b' - buff, 'c' - cinnamon, 'g' - gray, 'o' - orange, 'p' - pink, 'e' - red, 'w' - white, 'y' - yellow |
+| veil-type | The type of veil that the mushroom has covering the cap and stalk | Character: 'p' - partial, 'u' - universal |
+| veil-color | The color of the mushroom's veil | Character: 'n' - brown, 'o' - orange, 'w' - white, 'y' - yellow |
+| ring-number | The number of rings (annuli) on the mushroom's stalk | Character: 'n' - none, 'o' - one, 't' - two |
+| ring-type | The type of ring (annulus) on mushroom's stalk| Character: 'c' - cobwebby, 'e' - evanescent, 'f' - flaring, 'l' - large, 'n' - none, 'p' - pendant, 's' - sheathing, 'z' - zone |
+| spore-print-color | The color of the mushroom's spore print | Character: 'k' - black, 'n' - brown, 'b' - buff, 'h' - chocolate, 'r' - green, 'o' - orange, 'u' - purple, 'w' - white, 'y' - yellow |
+| population | The number of mushroom's of the same type in the location it was found | Character: 'a' - abundant, 'c' - clustered, 'n' - numerous, 's' - scattered, 'v' - several, 'y' - solitary |
+| habitat | The habitat the mushroom was found in | Character: 'g' - grasses, 'l' - leaves, 'm' - meadows, 'p' - paths, 'u' - urban, 'w' - waste, 'd' - woods |
 
 - **Project Terms & Jargon**
-  - A customer is a person holding a credit card with the bank
-  - A prospect is a prospective customer
-  - An attritioned customer is one who closed their account
-  - A relationship describes an individual service that a customer uses with the bank. The credit card account is a relationship, of which customers may have additional relationships (e.g. savings account, mortgage, etc.)
-  - Utilization ratio is the ratio between a customers credit card balance and their credit card limit, 0 meaning no debt whatsoever and 1 meaning they have "maxed out"
+  - A mushroom describes any which has been picked by the company and physically classified using the above table of variables
+  - Edibility describes whether a mushroom is edible or not
 
 ## Business Requirements
 
-A fictitious client for this project is a highly data-driven bank that is seeking to improve customer retention and profitability in its credit card service. When a customer enters a credit card relationship with the bank, the bank opens a **credit line** for them that they may use at any time to make purchases on the card, which adds to the card's balance. Customers will then service this credit by repayments and may pay the credit off partially or in full if they so choose, all with some additional fee to allow the bank to profit from providing the service. This process of adding to the card balance with purchases and drawing it down with repayments gives rise to a **revolving balance** - the portion of the account that is unpaid at the end of a billing cycle (typically one month long), of which interest is applied to.
+A fictitious client for this project is a highly data-driven artisanal wild mushroom harvesting business that is seeking a reliable means to classify whether the Agaricus and Lepiota mushrooms they pick are edible or poisonous. They want to avoid selling toxic mushrooms to their customers, but also wish to avoid paying for costly toxicity screening or hiring expert mycologists to correctly identify mushrooms, and would prefer a cheap and reliable model to determine whether mushrooms are safe to eat. When a mushroom is picked, the picker will classify the mushroom based on it's physical characteristics, using set categories provided by the client. This information is logged, and then the mushroom is tested on cell cultures to determine if it is poisonous or not. 
 
-Each credit card customer is restricted in the amount they may add to their credit card balance by a value called a **credit limit**. This is the size of the credit line that the bank views as viable to leave open for the customer, as well the maximum amount the bank calculates to be safe to lend to the customer. In terms of the bank's business, it is unprofitable for credit lines to go unused, and would prefer a situation where all customers have maxed out credit cards that they pay interest on, ie. the customers' **utilization ratio**, the ratio of revolving balance to credit limit, is kept as close to 1 as possible.
+The client has shared a mushroom database containing information pertaining to the physical characteristics of the mushrooms and whether they were classed as edible or poisonous.
 
-If a customer **attritions** (ie. closes their credit card account), this hurts the banks profits as the customer will have paid down their card balance in full rather than continually paying interest, may have unused credit lines the bank will need to reassign, and will also lower the banks potential pool of debtors going into the future. Preferably, the bank would like to have customers that will be retained, and if they are going to attrition, they would prefer they stay in the relationship with the bank for as many months as possible and have high utilization ratios in that time.
+- **1** The client would like to better understand the patterns in the mushroom database so that the client can learn the variables of a mushroom most likely to be edible. This will help their picking team know what characteristics to look for and focus on picking.
 
-The client has shared a customer database containing information pertaining to the above profitability considerations for each customer, paired with customer demographic data and the type of credit card product they are using.
+- **2** The client would like to determine whether a given mushroom is edible. It is essential that any means of doing this has a false positive rate of zero, as the client does not want to inadvertently sell poisonous mushrooms mistakenly identified as edible.
 
-- **1** The client would like to better understand the patterns in the customer base so that the client can learn the variables of a prospect least likely to attrition. This will help their marketing team better target their advertising campaigns and their sales teams to offer the right products.
-
-- **2** The client would like to determine whether a given prospect will attrition. They would also like to know if a prospect is likely to attrition, how long they are likely to keep their account open for. This will allow the sales team to determine if changing the product offered to the prospect (credit limit and type of card) may influence said prospect to not attrition/maintain their account for longer.
-
-- **3** The client would like to determine the credit utilization based on prospect data. This will allow the bank to identify valuable prospects early on, which they may try to build customer loyalty with through offering targeted customer perks.
+- **3** The client has informed us that there are 23 distinct species of mushroom in the dataset. They want to investigate if these 23 species can be identified from the variables supplied by cluster analysis, and the rates of edibility among each identified cluster. 
 
 ## Hypothesis and how to validate?
 
-- 1 - It's suspected that attritioned customers have short relationship times.
-  - Correlation study may be used to investigate this
-- 2 - It's suspected that card category has some correlation with average utilization ratio.
-  - Correlation study may be used to investigate this
+- 1 - It's suspected that poisonous mushrooms typically have a foul odor.
+  - Viewing the average rate of edibility among mushrooms with a foul odor compared to those with other odors, combined with a correlation study on odor to determine if odor is a predictor of edibility may be used to investigate this.
+- 2 - It's suspected that poisonous mushrooms typically have a brown gill color.
+  - Viewing the average rate of edibility among mushrooms with a brown gill color compared to those with other gill colors, combined with a correlation study on gill color to determine if gill color is a predictor of edibility may be used to investigate this.
 
 ## The rationale to map the business requirements to the Data Visualizations and ML tasks
 
 - **Business Requirement 1:** Data visualization and correlation study
 
-  - We will inspect the data related to the customer base.
-  - We will conduct a correlation study (Pearson and Spearman) to understand better how the variables are correlated to attrition.
-  - We will plot the main variables that correlate to attrition to visualize insights.
+  - We will inspect the data related to the logged mushrooms.
+  - We will conduct a correlation study (Pearson and Spearman) to understand better how the variables are correlated to edibility.
+  - We will plot the main variables that correlate to edibility to visualize insights.
 
-- **Business Requirement 2:** Classification and regression analysis
+- **Business Requirement 2:** Classification analysis
 
-  - We want to predict if a prospect will attrition or not. We want to build a binary classifier.
-  - We want to predict the length of the relationship for a prospect that is predicted to churn. We want to build a regression model for this, but if it is low performing we may change to a multiclass classifier for ranges of relationship duration.
+  - We want to predict if a given mushroom will be edible or poisonous. We will build a binary classifier.
 
-- **Business Requirement 3:** Regression analysis
-  - We want to predict the credit utilization ratio for a given prospect. We want to build a regression model for this, but if this displays low performance we could also change this task to a multiclass classifier between low utilization (0-0.3), medium utilization (0.3-0.7), and high utilization (0.7-1).
+- **Business Requirement 3:** Cluster analysis
 
-Should either of the above tasks involve classification, cluster analysis of prospects may be required
+  - We want to investigate if there distinct groups of similar mushrooms by unsupervised learning. We are told b
+  - When these distinct groups are identified, we want to build a classifier that can identify which group a mushroom belongs to.
+  - We then wish to investigate if the rates of edibility among clusters of similar mushrooms.
 
 ## ML Business Case
 
-### Predict Attrition
+### Predict Edible
 
 #### Classification Model
 
-- We want an ML model to predict if a prospect will attrition based on historical data from the customer data, excluding data that would only be available for established customers (usage data, e.g. total revolving balance, total transaction count etc.). The target variable is categorical and contains 2 classes. We consider a **classification model**. It is a supervised model, a 2-class, single label, classification model output: 0 (no attrition) or 1 (yes attrition)
-- The ideal outcome is to provide the sales and marketing teams with reliable insight into the best profile of a loyal customer for onboarding/to target advertising to.
-- The model success metrics:
-  - at least 80% recall for attrition, on train and test set
+- We want an ML model to predict if a mushroom is edible based on historical data from the mushrooms the client has logged. The target variable is categorical and contains 2 classes. We consider a **classification model**. It is a supervised, 2-class, single label, classification model with outputs of 0 (poisonous) or 1 (edible).
+- The ideal outcome is to provide the picking team with reliable insight into the best profile of an edible mushroom for focusing on picking.
+- The model success metrics: 
+  - at least a precision of 1 for ediblility, on train and test set - no false positives
+  - at least a recall of 0.9 for edibility, on train and test set - minimum false negatives
   - The ML model is considered a failure if:
-    - after 3 months of uage, more than 30% of new customers identified to not attrition end up attrition (even if the model performs well on the provided dataset, this will indicate that what it has learned on is not generalizable to future customer dynamics)
-    - Precision for no attrition is lower than 80% on train and test set. (Don't want to waste means of converting a customer to no attrition such as raising credit limits or better card categories.)
-  - The model output is defined as a flag, indicating if a prospect will attrition or not and the probability they will attrition. If the prospect applies online, they will supply the input data into a form. If the prospect is talking directly to a salesperson, the salesperson will ask for this information directly to input into the app. The predictions is made on the fly (not for batches).
+    - after 3 months of test usage, any newly picked mushrooms identified as edible come up as poisonous in a toxicity screen (even if model performs perfectly on the provided mushroom data, this will indicate what it has learned is not generalizable to a wider population of mushrooms)
+    - after 3 months of test usage, more than 20% of newly picked mushrooms identified as poisonous come up as edible in a toxicity screen (don't want a model that discards too many perfectly edible mushrooms for no reason)
+  - The model output is defined as a flag, indicating if a mushroom will be edible or poisonous and the probability they are edible. The picking team will have the dashboard available via their smartphones' web browser, enabling them to enter mushroom information in the field as they are collected. The prediction is made on the fly (not for batches).
   - Heuristics: There are no obvious heuristics for performing this task.
-  - The training data to fit the model comes from the bank. This dataset contains approximately 10,000 customer records.
-    - Train data - target: Attrition_Flag; features: Customer_Age, Gender, Dependent_count, Education_Level, Marital_Status, Income_Category, Card_Category, Total_Relationship_Count - 1, Credit_Limit
+  - The training data to fit the model comes from the mushroom picking company. This dataset contains approximately 8000 logged mushrooms.
+    - Train data - target: `class`; features: `cap-shape`, `cap-surface`, `cap-color`, `bruises`, `odor`, `gill-attachment`, `gill-spacing`, `gill-size`, `gill-color`, `stalk-shape`, `stalk-root`, `stalk-surface-above-ring`, `stalk-surface-below-ring`, `stalk-color-above-ring`, `stalk-color-below-ring`, `veil-type`, `veil-color`, `ring-number`, `ring-type`, `spore-print-color`, `population`, `habitat`
 
-### Predict Relationship
+### Cluster Mushroom
 
-#### Regression Model
+#### Clustering Model
 
-- We want an ML model to predict the length of time a prospect will remain in the credit card relationship, should they be predicted to attrition. The target variable is a discrete number. We consider a **regression model**, which is supervised and unidimensional.
-- The ideal outcome is to provide the sales and marketing teams with reliable insight into the best profile of a loyal customer for onboarding/to target advertising to.
+- We want an ML model to identify the various clusters that exist in the data to see if these correspond to the 23 species the client has claimed is in the dataset. We consider a **clustering model**, which is unsupervised. 
+- The ideal outcome is to provide the client with reliable insight into whether the variables their pickers are collecting can identify the mushroom's species.
 - The model success metrics:
-  - At least 0.7 for R2 score, on train and test set
+  - An average silhouette score of at least 0.6 among all clusters
   - The ML model is considered a failure if:
-    - after 12 months of usage, the model's predictions are 50% off more than 30% of the time.
-  - The output is defined as a continuous value for relationship length in months. This model will only make a prediction if the Predict Attrition Classifier predicts 1 (yes attrition). If the prospect applies online, they will supply the input data into a form. If the prospect is talking directly to a salesperson, the salesperson will ask for this information directly to input into the app. The predictions is made on the fly (not for batches).
-  - Heuristics: currently, there are no heuristics for predicting relationship lengths for a prospect.
-  - The training data to fit the model comes from the bank. This dataset contains approximately 10,000 customer records.
-    - Train data - filter data where Attrition_Flag == 'Attrited Customer', then drop the Attrition_Flag variable. Target: Months_on_book; features: Customer_Age, Gender, Dependent_count, Education_Level, Marital_Status, Income_Category, Card_Category, Total_Relationship_Count - 1, Credit_Limit
+    - 23 distinct species are not successfully identified.
+  - The output is defined as a flag, indicating which unlabeled cluster a mushroom belongs to. The picking team will have the dashboard available via their smartphone web browser, enabling them to enter mushroom information in the field as they are collected. The prediction is made on the fly (not for batches).
+  - The training data to fit the model comes from the mushroom picking company. This dataset contains approximately 8000 logged mushrooms.
+    - Train data - features: `cap-shape`, `cap-surface`, `cap-color`, `bruises`, `odor`, `gill-attachment`, `gill-spacing`, `gill-size`, `gill-color`, `stalk-shape`, `stalk-root`, `stalk-surface-above-ring`, `stalk-surface-below-ring`, `stalk-color-above-ring`, `stalk-color-below-ring`, `veil-type`, `veil-color`, `ring-number`, `ring-type`, `spore-print-color`, `population`, `habitat`
 
-### Predict Utilization
+### Classify Mushroom
 
-#### Regression Model
+#### Classification Model
 
-- We want an ML model to predict the average credit utilization ratio for a give prospect. The target variable is a continuous number, ranging from 0 to 1. We consider a **regression model** which is supervised and unidimensional.
-- The ideal outcome is to provide the sales and marketing teams with reliable insight into the best profile of a highly profitable customer for onboarding/to target advertising to. It will also provide the finance team with a sense of what utilization they may expect on credit lines for new customers, which may allow them to adjust credit limits (i.e. to save the bank giving a 34.5k credit limit to a customer that never puts more than 500 on their card)
+- We want an ML model to predict the cluster a mushroom belongs to. The target variable is categorical and will contain the number of classes determined as suitable from Cluster Mushroom. We consider a **classification model**. It is a supervised, multi-class, single label, classification model, with integer outputs corresponding to each unlabeled cluster.
+- The ideal outcome is to provide the picking team with a reliable method of identifying which clusters the mushrooms they pick belong to.
 - The model success metrics:
-  - At least 0.8 for R2 score, on train and test set
+  - An average recall of 0.7 among all clusters
   - The ML model is considered a failure if:
-    - after 12 months of usage, the model's predictions are 50% off more than 20% of the time.
-  - The output is defined as a continuous value for credit utilization ratio ranging between 0 and 1. If the prospect applies online, they will supply the input data into a form. If the prospect is talking directly to a salesperson, the salesperson will ask for this information directly to input into the app. The predictions is made on the fly (not for batches).
-  - Heuristics: There are no obvious heuristics for performing this task.
-  - The training data to fit the model comes from the bank. This dataset contains approximately 10,000 customer records.
-    - Train data - target: Avg_Utilization_Ratio; features: Customer_Age, Gender, Dependent_count, Education_Level, Marital_Status, Income_Category, Card_Category, Total_Relationship_Count - 1, Credit_Limit
+    - After 3 months of test usage, the model incorrectly assigns species labels to mushrooms more than 40% of the time.
+  - The output is defined as a flag, indicating which unlabeled cluster a mushroom belongs to. The picking team will have the dashboard available via their smartphone web browser, enabling them to enter mushroom information in the field as they are collected. The prediction is made on the fly (not for batches).
+  - The training data to fit the model comes from the mushroom picking company. This dataset contains approximately 8000 logged mushrooms.
+    - Train data - target: `mushroom-cluster`(from Cluster Mushroom) features: `cap-shape`, `cap-surface`, `cap-color`, `bruises`, `odor`, `gill-attachment`, `gill-spacing`, `gill-size`, `gill-color`, `stalk-shape`, `stalk-root`, `stalk-surface-above-ring`, `stalk-surface-below-ring`, `stalk-color-above-ring`, `stalk-color-below-ring`, `veil-type`, `veil-color`, `ring-number`, `ring-type`, `spore-print-color`, `population`, `habitat`
 
 ## Dashboard Design
 
@@ -197,44 +147,37 @@ Should either of the above tasks involve classification, cluster analysis of pro
   - Description of the dataset
   - Business requirements, with some greater context the user can expand on
 
-### Page 2: Customer Attrition Study
+### Page 2: Mushroom Edibility Study
 
-- Need this page to answer business requirment 1. Will need to display plots that correlate prospect demographic and product variables to attrition
+- Need this page to answer business requirment 1. Will need to display plots that correlate mushroom variables to edibility
 - Agreed with stakeholders that this page will:
   - State business requirement 1
   - Checkbox: data inspection (displays the number of rows and columns in dataset, as well as first ten rows of data)
-  - Displays most correlated demographic and product variables to attrition with conclusions of study
-  - Checkbox: Individual plots displaying attrition rates for each variable most correlated to attrition
-  - Checkbox: Parallel plots mapping correlated variables to attrition for full visualization of how customer base breaks down
+  - Displays most correlated mushroom variables to edibility with conclusions of study
+  - Checkbox: Individual plots displaying edibility rates for each variable most correlated to edibility
+  - Checkbox: Parallel plots mapping correlated variables to edibility for full visualization of how mushroom population breaks down
 
-### Page 3: Prospect Attritionscope
+### Page 3: Mushroom Classifier
 
 - State business requirements 2 and 3
-- Set of input widgets for setting the demographic/product variables of the prospect. The inputs are related to ML pipelines that will predict attrition, relationship length, and credit utilization ratio
-- "Run prediction" button that feeds the prospect's data into the ML pipelines. These will predict the probability of whether the prospect will attrition or not, and if it is likely that they attrition, what will be the length of their relationship. It will also serve the predicted credit utilization ratio of the given prospect.
+- Set of input widgets for setting the variables of the picked mushrooms. The inputs are related to ML pipelines that will predict edibility and the cluster the mushroom belongs to.
+- "Run prediction" button that feeds the mushroom's data into the ML pipelines. These will predict the probability of whether the mushroom will be edible or poisonous, and which cluster of similar mushrooms they belong to, and whether this cluster tends to have poisonous or edible mushrooms, and at what rate.
 
 ### Page 4: Project Hypotheses and Validation
 
 - We have two hypotheses regarding this dataset, which we will state and then display the results of testing them.
 
-* 1 - It's suspected that attritioned customers have short relationship times.
-* 2 - It's suspected that card category has some correlation with average utilization ratio.
+* 1 - It's suspected that poisonous mushrooms have a foul odor.
+* 2 - It's suspected that poisonous mushrooms have a brown spore print color.
 
-### Page 5: Predict Attrition
-
-- Considerations and conclusions after pipeline is trained
-- Present ML pipeline steps
-- Feature importance
-- Pipeline importance
-
-### Page 6: Predict Relationship
+### Page 5: ML: Mushroom Edibility
 
 - Considerations and conclusions after pipeline is trained
 - Present ML pipeline steps
 - Feature importance
 - Pipeline importance
 
-### Page 7: Predict Utilization
+### Page 6: ML: Mushroom Cluster Analysis
 
 - Considerations and conclusions after pipeline is trained
 - Present ML pipeline steps
@@ -249,16 +192,16 @@ Should either of the above tasks involve classification, cluster analysis of pro
 
 ### Heroku
 
-- The App live link is: https://YOUR_APP_NAME.herokuapp.com/
-- Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
+- The App live link is: https://mushroom-safety-a3c88f9ac249.herokuapp.com/
+- 
 - The project was deployed to Heroku using the following steps.
 
 1. Log in to Heroku and create an App
-2. At the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
-6. If the slug size is too large then add large files not required for the app to the .slugignore file.
+2. At the Deploy tab, selected GitHub as the deployment method.
+3. Selected "mushroom-safety" and click Search. Once it was found, clicked Connect.
+4. In the heroku CLI, ran `heroku stack:set heroku-20 -a mushroom-safety` to set the stack to heroku-20
+4. Selected the main branch to deploy, then clicked Deploy Branch.
+5. Clicked the button Open App on the top of the page to access App.
 
 ## Main Data Analysis and Machine Learning Libraries
 
