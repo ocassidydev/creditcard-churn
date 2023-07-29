@@ -205,24 +205,33 @@ The client has shared a mushroom database containing information pertaining to t
 
 ## Main Data Analysis and Machine Learning Libraries
 
-- Here you should list the libraries you used in the project and provide an example(s) of how you used these libraries.
+- The libraries used in this project:
+
+	-`numpy` - for general usage on array-based data structures.
+	-`pandas` - for creating DataFrames to store the dataset in and operating various data cleaning, feature engineering, modelling and model assessment tasks.
+	-`matplotlib` - for plotting data to visualize insights
+	-`seaborn` - for plotting data to visualize insights
+	-`ydata-profiling` - for using the `ProfileReport` class to assess the datasets composition
+	-`plotly` - for formatting matplotlib and seaborn plots
+	-`ppscore` - for generating correlation coefficients of different variables in the dataset to the target
+	-`streamlit` - for implementing the dashboard application
+	-`feature-engine` - for various feature engineering tasks
+	-`imbalanced-learn` - for performing SMOTE on the training data to ensure a balanced proportion of targets
+	-`scikit-learn` - for implementing ML models
+	-`xgboost` - for implementing ML models
+	-`yellowbrick` - for assessing model perfomance
+	-`category_encoders` - for using the `TargetEncoder` class to perform target encoding on the dataset
 
 ## Credits
 
-- In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism.
-- You can break the credits section up into Content and Media, depending on what you have included in your project.
-
 ### Content
 
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
+- 
 
 ### Media
 
-- The photos used on the home and sign-up page are from This Open-Source site
-- The images used for the gallery page were taken from this other open-source site
+- 
 
-## Acknowledgements (optional)
+## Acknowledgements
 
 - Thank the people that provided support through this project.
