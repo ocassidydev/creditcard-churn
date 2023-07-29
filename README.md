@@ -53,6 +53,8 @@ The dataset was sourced from the <a href="https://www.kaggle.com/datasets/uciml/
 - **Project Terms & Jargon**
   - A mushroom describes any which has been picked by the company and physically classified using the above table of variables
   - Edibility describes whether a mushroom is edible or not
+  - Variable is any individual column in the above dataset that describes a mushroom, e.g. `odor`
+  - Category is any possible value of each variable for a mushroom, e.g. `odor=none`
 
 ## Business Requirements
 
@@ -68,10 +70,10 @@ The client has shared a mushroom database containing information pertaining to t
 
 ## Hypothesis and how to validate?
 
-- 1 - It's suspected that poisonous mushrooms typically have a foul odor.
-  - Viewing the average rate of edibility among mushrooms with a foul odor compared to those with other odors, combined with a correlation study on odor to determine if odor is a predictor of edibility may be used to investigate this.
-- 2 - It's suspected that poisonous mushrooms typically have a brown gill color.
-  - Viewing the average rate of edibility among mushrooms with a brown gill color compared to those with other gill colors, combined with a correlation study on gill color to determine if gill color is a predictor of edibility may be used to investigate this.
+- 1 - It's suspected that edible mushrooms typically have no odor.
+  - Viewing the average rate of edibility among mushrooms with a no odor compared to those with odors, combined with a correlation study may be used to investigate this.
+- 2 - It's suspected that poisonous mushrooms typically have a silky stalk surface consistency above their stalk ring.
+  - Viewing the average rate of edibility among mushrooms with a silky stalk consistency above the stalk ring compared to those with other stalk surfaces, combined with a correlation study may be used to investigate this.
 
 ## The rationale to map the business requirements to the Data Visualizations and ML tasks
 
@@ -212,7 +214,7 @@ The client has shared a mushroom database containing information pertaining to t
 	-`matplotlib` - for plotting data to visualize insights
 	-`seaborn` - for plotting data to visualize insights
 	-`ydata-profiling` - for using the `ProfileReport` class to assess the datasets composition
-	-`plotly` - for formatting matplotlib and seaborn plots
+	-`plotly` - for plotting parallel plots of mushrooms variables with respect to edibility
 	-`ppscore` - for generating correlation coefficients of different variables in the dataset to the target
 	-`streamlit` - for implementing the dashboard application
 	-`feature-engine` - for various feature engineering tasks
