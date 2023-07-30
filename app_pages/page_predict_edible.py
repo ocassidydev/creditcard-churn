@@ -1,14 +1,16 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-from src.data_management import load_mushroom_data, load_pkl_file
+from src.data_management import load_pkl_file
 from src.machine_learning.evaluate_clf import clf_performance
 
 
 def page_predict_edible_body():
-
+    """ 
+        Page for displaying the information about the Predict Edible pipeline's training and model performance 
+    """
     version = 'v1'
-    # load needed files
+
     edible_pipe_fe = load_pkl_file(f'outputs/ml_pipeline/predict_edible/{version}/clf_pipeline_feat_eng.pkl')
     edible_pipe_model = load_pkl_file(f"outputs/ml_pipeline/predict_edible/{version}/clf_pipeline_model.pkl")
     edible_feat_importance = plt.imread(f"outputs/ml_pipeline/predict_edible/{version}/features_importance.png")

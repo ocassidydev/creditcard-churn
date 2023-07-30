@@ -67,11 +67,11 @@ When a mushroom is picked, the picker will classify the mushroom based on it's p
 
 The client has shared a mushroom database containing information pertaining to the physical characteristics of the mushrooms and whether they were classed as edible or poisonous.
 
-- **1** The client would like to better understand the patterns in the mushroom database so that the client can learn the variable categories of a mushroom most likely to be edible. This will help their picking team know what characteristics to look for and focus on picking.
+- **1** The client would like to better understand the patterns in the mushroom database so that the client can learn the variable categories of a mushroom most likely to be edible. This will help their picking team know what mushroom characteristics to look for and focus on picking.
 
 - **2** The client would like to determine whether a given mushroom is edible. It is essential that any means of doing this has a false positive rate of zero, as the client does not want to inadvertently sell poisonous mushrooms mistakenly identified as edible.
 
-- **3** The client has informed us that there are a number of distinct species of mushroom in the dataset. They want to investigate if these species can be identified from the variables supplied by use of cluster analysis, and to determine the rates of edibility among each identified cluster. Ideally, this will allow the picking team to identify certain heuristics for selecting edible mushrooms.
+- **3** The client has informed us that there are a number of distinct species of mushroom in the dataset. They want to investigate if this can be identified by grouping mushrooms with similar categories by means of a cluster algorithm, and to determine the rates of edibility among each identified cluster. Ideally, this will allow the picking team to identify certain categorical heuristics for selecting edible mushrooms.
 
 ## Hypothesis and how to validate?
 
@@ -169,10 +169,10 @@ The client has shared a mushroom database containing information pertaining to t
 
 ### Page 4: Project Hypotheses and Validation
 
-- We have two hypotheses regarding this dataset, which we will state and then display the results of testing them.
+- We have two hypotheses regarding this dataset, which we will state and then display the results of testing them
 
-* 1 - It's suspected that poisonous mushrooms have a foul odor.
-* 2 - It's suspected that poisonous mushrooms have a brown spore print color.
+* 1 - It's suspected that poisonous mushrooms have a foul odor
+* 2 - It's suspected that poisonous mushrooms have a brown spore print color
 
 ### Page 5: ML: Mushroom Edibility
 
@@ -188,6 +188,13 @@ The client has shared a mushroom database containing information pertaining to t
 - Feature importance
 - Pipeline performance
 
+### Page 6: ML: Mushroom Classify
+
+- Considerations and conclusions after pipeline is trained
+- Present ML pipeline steps
+- Feature importance
+- Pipeline performance
+
 ## Unfixed Bugs
 
 - There is no known unfixed bugs in the project.
@@ -197,13 +204,12 @@ The client has shared a mushroom database containing information pertaining to t
 ### Heroku
 
 - The App live link is: https://mushroom-safety-a3c88f9ac249.herokuapp.com/
-- 
 - The project was deployed to Heroku using the following steps.
 
-1. Log in to Heroku and create an App
+1. Logged in to Heroku and created an App, mushroom-safety.
 2. At the Deploy tab, selected GitHub as the deployment method.
 3. Selected "mushroom-safety" and click Search. Once it was found, clicked Connect.
-4. In the heroku CLI, ran `heroku stack:set heroku-20 -a mushroom-safety` to set the stack to heroku-20
+4. In the heroku CLI, ran `heroku stack:set heroku-20 -a mushroom-safety` to set the stack to heroku-20.
 4. Selected the main branch to deploy, then clicked Deploy Branch.
 5. Clicked the button Open App on the top of the page to access App.
 
@@ -211,20 +217,20 @@ The client has shared a mushroom database containing information pertaining to t
 
 - The libraries used in this project:
 
-	-`numpy` - for general usage on array-based data structures.
-	-`pandas` - for creating DataFrames to store the dataset in and operating various data cleaning, feature engineering, modelling and model assessment tasks.
-	-`matplotlib` - for plotting data to visualize insights
-	-`seaborn` - for plotting data to visualize insights
-	-`ydata-profiling` - for using the `ProfileReport` class to assess the datasets composition
-	-`plotly` - for plotting parallel plots of mushrooms variables with respect to edibility
-	-`ppscore` - for generating correlation coefficients of different variables in the dataset to the target
-	-`streamlit` - for implementing the dashboard application
-	-`feature-engine` - for various feature engineering tasks
-	-`imbalanced-learn` - for performing SMOTE on the training data to ensure a balanced proportion of targets
-	-`scikit-learn` - for implementing ML models
-	-`xgboost` - for implementing ML models
-	-`yellowbrick` - for assessing clustering model performance by visualizing silhouette scores
-	-`category_encoders` - for using the `TargetEncoder` class to perform target encoding on the dataset
+	- `numpy` - for general usage on array-based data structures
+	- `pandas` - for creating DataFrames to store the dataset in and operating various data cleaning, feature engineering, modelling and model assessment tasks
+	- `matplotlib` - for plotting data to visualize insights
+	- `seaborn` - for plotting data to visualize insights
+	- `ydata-profiling` - for using the `ProfileReport` class to assess the datasets composition
+	- `plotly` - for plotting parallel plots of mushrooms variables with respect to edibility
+	- `ppscore` - for generating correlation coefficients of different variables in the dataset to the target
+	- `streamlit` - for implementing the dashboard application
+	- `feature-engine` - for various feature engineering tasks
+	- `imbalanced-learn` - for performing SMOTE on the training data to ensure a balanced proportion of targets
+	- `scikit-learn` - for implementing ML models
+	- `xgboost` - for implementing ML models
+	- `yellowbrick` - for assessing clustering model performance by visualizing silhouette scores
+	- `category_encoders` - for using the `TargetEncoder` class to perform target encoding on the dataset
 
 ## Credits
 
@@ -239,8 +245,4 @@ The client has shared a mushroom database containing information pertaining to t
 ### Media
 
 - The image at the top of this README was sourced from [Pinterest](https://www.pinterest.ie/pin/63894888434725002/)
-- 
-
-## Acknowledgements
-
-- Thank the people that provided support through this project.
+- The diagram of a mushroom in this README and on the summary page of the dashboard was sourced from [Psychadelic Review](https://psychedelicreview.com/what-are-magic-mushrooms/)

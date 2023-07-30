@@ -15,6 +15,13 @@ def page_mushroom_body():
     cluster_profile = pd.read_csv(f"outputs/ml_pipeline/cluster_analysis/{version}/clusters_profile.csv")
 
     st.write("### Mushroom Edibility Interface")
+    st.success(f"* The client would like to determine whether a given mushroom is edible. It is essential that any means of doing this has a false "
+            f" positive rate of zero, as the client does not want to inadvertently sell poisonous mushrooms mistakenly identified as edible."
+            f"* The client has informed us that there are a number of distinct species of mushroom in the dataset. They want to investigate "
+            f"if this can be identified by grouping mushrooms with similar categories by means of a cluster algorithm, and to determine the rates "
+            f"of edibility among each identified cluster. Ideally, this will allow the picking team to identify certain categorical heuristics for "
+            f"selecting edible mushrooms.")
+
     st.info(f"* The client is interested in determining whether a given mushroom is edible or poisonous.\n"
             f"* The client would also like to know which cluster of similar mushrooms a given " 
             f"mushroom belongs to, in order to group mushrooms similar in appearance and heurestically "
