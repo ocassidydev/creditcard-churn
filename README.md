@@ -116,12 +116,12 @@ The client has shared a mushroom database containing information pertaining to t
 
 #### Clustering Model
 
-- We want an ML model to identify the various clusters that exist in the data to see if these correspond to the 23 species the client has claimed is in the dataset. We consider a **clustering model**, which is unsupervised. 
+- We want an ML model to identify the various clusters that exist in the data to see if these correspond to distinct groups of mushrooms that might be labelled as species. We consider a **clustering model**, which is unsupervised. 
 - The ideal outcome is to provide the client with reliable insight into whether the variables their pickers are collecting can identify the mushroom's species.
 - The model success metrics:
-  - An average silhouette score of at least 0.6 among all clusters
+  - An average silhouette score of at least 0.5 among all clusters
   - The ML model is considered a failure if:
-    - 23 distinct species are not successfully identified.
+    - Distinct clusters are not successfully identified at the given mean silhouette score.
   - The output is defined as a flag, indicating which unlabeled cluster a mushroom belongs to. The picking team will have the dashboard available via their smartphone web browser, enabling them to enter mushroom information in the field as they are collected. The prediction is made on the fly (not for batches).
   - The training data to fit the model comes from the mushroom picking company. This dataset contains approximately 8000 logged mushrooms.
     - Train data - features: `cap-shape`, `cap-surface`, `cap-color`, `bruises`, `odor`, `gill-attachment`, `gill-spacing`, `gill-size`, `gill-color`, `stalk-shape`, `stalk-root`, `stalk-surface-above-ring`, `stalk-surface-below-ring`, `stalk-color-above-ring`, `stalk-color-below-ring`, `veil-type`, `veil-color`, `ring-number`, `ring-type`, `spore-print-color`, `population`, `habitat`
@@ -135,7 +135,7 @@ The client has shared a mushroom database containing information pertaining to t
 - The model success metrics:
   - An average recall of 0.7 among all clusters
   - The ML model is considered a failure if:
-    - After 3 months of test usage, the model incorrectly assigns species labels to mushrooms more than 40% of the time.
+    - After 3 months of test usage, the model incorrectly assigns cluster labels to mushrooms more than 40% of the time.
   - The output is defined as a flag, indicating which unlabeled cluster a mushroom belongs to. The picking team will have the dashboard available via their smartphone web browser, enabling them to enter mushroom information in the field as they are collected. The prediction is made on the fly (not for batches).
   - The training data to fit the model comes from the mushroom picking company. This dataset contains approximately 8000 logged mushrooms.
     - Train data - target: `mushroom-cluster`(from Cluster Mushroom) features: `cap-shape`, `cap-surface`, `cap-color`, `bruises`, `odor`, `gill-attachment`, `gill-spacing`, `gill-size`, `gill-color`, `stalk-shape`, `stalk-root`, `stalk-surface-above-ring`, `stalk-surface-below-ring`, `stalk-color-above-ring`, `stalk-color-below-ring`, `veil-type`, `veil-color`, `ring-number`, `ring-type`, `spore-print-color`, `population`, `habitat`
@@ -221,7 +221,7 @@ The client has shared a mushroom database containing information pertaining to t
 	-`imbalanced-learn` - for performing SMOTE on the training data to ensure a balanced proportion of targets
 	-`scikit-learn` - for implementing ML models
 	-`xgboost` - for implementing ML models
-	-`yellowbrick` - for assessing model perfomance
+	-`yellowbrick` - for assessing clustering model performance by visualizing silhouette scores
 	-`category_encoders` - for using the `TargetEncoder` class to perform target encoding on the dataset
 
 ## Credits

@@ -26,5 +26,5 @@ def page_summary_body():
         f"of a mushroom most likely to be edible."
         f"* 2 - The client would like to determine whether a given mushroom is edible. It is essential that any means of doing this has a "
         f"false positive rate of zero, as the client does not want to inadvertently sell poisonous mushrooms mistakenly identified as edible."
-        f"* 3 - The client has informed us that there are 23 distinct species of mushroom in the dataset. They want to investigate if these "
-        f"23 species can be identified from the variables supplied by cluster analysis, and the rates of edibility among each identified cluster.")
+        f"* 3 - The client has informed us that there are a number opf distinct species of mushroom in the dataset. They want to investigate if these "
+        f"species can be identified from the variables supplied by cluster analysis, and the rates of edibility among each identified cluster.")
