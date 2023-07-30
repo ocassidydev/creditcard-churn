@@ -52,8 +52,8 @@ The dataset was sourced from the <a href="https://www.kaggle.com/datasets/uciml/
 
 - **Project Terms & Jargon**
   - A mushroom describes any which has been picked by the company and physically classified using the above table of variables
-  - Edibility describes whether a mushroom is edible or not
-  - Variable is any individual column in the above dataset that describes a mushroom, e.g. `odor`
+  - Edibility describes whether a mushroom is edible or not, ie. is it not poisonous
+  - A variable is any individual column in the above dataset that describes a mushroom, e.g. `odor`
   - Category is any possible value of each variable for a mushroom, e.g. `odor=none`
 
 ## Business Requirements
