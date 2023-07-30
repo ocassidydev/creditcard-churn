@@ -9,11 +9,9 @@ sns.set_style("whitegrid")
 
 
 def page_mushroom_edibility_study_body():
-
-    # load data
+    """ Page for displaying the mushroom edibility study findings"""
     df = load_mushroom_data()
 
-    # hard copied from mushroom edibility study notebook
     vars_to_study = ['gill-color',
                      'odor',
                      'ring-type',
@@ -22,9 +20,9 @@ def page_mushroom_edibility_study_body():
 
     st.write("### Mushroom Edibility Study")
     st.info(
-        f"* Test")
+        f"* The client is interested in understanding the patterns among the logged mushroom database "
+        f" so that they can learn the most relevant variables correlated to an edible mushroom.")
 
-    # inspect data
     if st.checkbox("Inspect Mushroom Population"):
         st.write(
             f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns, "
@@ -34,64 +32,49 @@ def page_mushroom_edibility_study_body():
 
     st.write("---")
 
-    # Correlation Study Summary
     st.write(
         f"* A correlation study was conducted in the notebook to better understand how "
         f"the variables are correlated to levels of edible mushrooms. \n"
-        f"The most correlated variable are: **{vars_to_study}**"
+        f"The most correlated variables are: **{vars_to_study}**"
     )
 
-    # Text based on "02 - Mushroom Edibility Study" notebook - "Conclusions and Next steps" section
     st.info(
-        f"The correlation indications and plots below interpretation converge."
-    )
+        f"The correlation coefficients and the interpretations of the plots below converge."
+        f"It is indicated that: \n"
+        f"* Mushrooms with `buff` for `gill color` are most liable to be poisonous \n"
+        f"* Mushrooms with `foul` for `odor` are most liable to be poisonous \n"
+        f"* Mushrooms with `pendant` for `ring-type` have the best chance of being edible \n"
+        f"* Mushrooms with `buff` for `spore-print-color` have the best chance of being edible \n"
+        f"* Mushrooms with `silky` for `stalk-surface-above-ring` are most liable to be poisonous \n")
 
-    # Code copied from "02 - Mushroom Edibility Study" notebook - "EDA on selected variables" section
-    df_eda = df.filter(vars_to_study + ['class'])
+    df_eda = df.filter(vars_to_study + ['edible'])
 
-    # Individual plots per variable
     if st.checkbox("Edibility Levels per Variable"):
-        churn_level_per_variable(df_eda)
+        edible_level_per_variable(df_eda)
 
-    # Parallel plot
     if st.checkbox("Parallel Plot"):
         st.write(
             f"* Information in yellow indicates the profile from an edible mushroom")
-        parallel_plot_churn(df_eda)
+        parallel_plot_edible(df_eda)
 
 
-# function created using "02 - Mushroom Edibility Study" notebook code - "Variables Distribution by Churn" section
-def churn_level_per_variable(df_eda):
-    target_var = 'class'
+def edible_level_per_variable(df_eda):
+    """ Calls plot_categorical for each column in the dataset """
+    target_var = 'edible'
 
     for col in df_eda.drop([target_var], axis=1).columns.to_list():
-        if df_eda[col].dtype == 'object':
-            plot_categorical(df_eda, col, target_var)
-        else:
-            plot_numerical(df_eda, col, target_var)
+        plot_categorical(df_eda, col, target_var)
 
-
-# code copied from "02 - Mushroom Edibility Study" notebook - "Variables Distribution by Churn" section
 def plot_categorical(df, col, target_var):
+    """ Plots distribution of categorical variables with respect to a target variable """
     fig, axes = plt.subplots(figsize=(12, 5))
     sns.countplot(data=df, x=col, hue=target_var,
                   order=df[col].value_counts().index)
     plt.xticks(rotation=90)
     plt.title(f"{col}", fontsize=20, y=1.05)
-    st.pyplot(fig)  # st.pyplot() renders image, in notebook is plt.show()
+    st.pyplot(fig)
 
-
-# code copied from "02 - Mushroom Edibility Study" notebook - "Variables Distribution by Churn" section
-def plot_numerical(df, col, target_var):
-    fig, axes = plt.subplots(figsize=(8, 5))
-    sns.histplot(data=df, x=col, hue=target_var, kde=True, element="step")
-    plt.title(f"{col}", fontsize=20, y=1.05)
-    st.pyplot(fig)  # st.pyplot() renders image, in notebook is plt.show()
-
-
-# function created using "02 - Mushroom Edibility Study" notebook code - Parallel Plot section
-def parallel_plot_churn(df_eda):
-    fig = px.parallel_categories(
-        df_eda, color="class", width=750, height=500)
-    # we use st.plotly_chart() to render, in notebook is fig.show()
+def parallel_plot_edible(df_eda):
+    """ Plots parallel plot of selected variables in dataset with respect to edibility """
+    fig = px.parallel_categories(df_eda, color="edible", width=750, height=500)
     st.plotly_chart(fig)
