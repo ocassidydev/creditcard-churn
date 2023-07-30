@@ -188,7 +188,7 @@ The client has shared a mushroom database containing information pertaining to t
 - Feature importance
 - Pipeline performance
 
-### Page 6: ML: Mushroom Classify
+### Page 7: ML: Mushroom Classify
 
 - Considerations and conclusions after pipeline is trained
 - Present ML pipeline steps
