@@ -10,21 +10,21 @@ def page_mushroom_body():
     edible_pipe_fe = load_pkl_file(f'outputs/ml_pipeline/predict_edible/{version}/clf_pipeline_feat_eng.pkl')
     edible_pipe_model = load_pkl_file(f"outputs/ml_pipeline/predict_edible/{version}/clf_pipeline_model.pkl")
 
-    cluster_pipe = load_pkl_file(f"outputs/ml_pipeline/cluster_analysis/{version}/cluster_pipeline.pkl")
+    cluster_pipe = load_pkl_file(f"outputs/ml_pipeline/cluster_analysis/{version}/classify_pipeline.pkl")
     cluster_features = (pd.read_csv(f"outputs/ml_pipeline/cluster_analysis/{version}/TrainSet.csv").columns.to_list())
     cluster_profile = pd.read_csv(f"outputs/ml_pipeline/cluster_analysis/{version}/clusters_profile.csv")
 
     st.write("### Mushroom Edibility Interface")
-    st.info(
-        f"* The client is interested in determining whether a given mushroom is edible or poisonous."
-        f"* The client would also like to know which unlabelled cluster of similar mushrooms a given mushroom belongs to, in order to predict their species." 
-    )
+    st.info(f"* The client is interested in determining whether a given mushroom is edible or poisonous."
+            f"* The client would also like to know which unlabelled cluster of similar mushrooms a given " 
+            f"mushroom belongs to, in order to group mushrooms similar in appearance and heurestically "
+            f"rule out/target certain mushrooms for harvesting if their cluster tends to be poisonous/edible" )
     st.write("---")
 
     X_live = DrawInputsWidgets()
 
     if st.button("Run Predictive Analysis"):
-        predict_edible(X_live, edible_pipe_dc_fe, edible_pipe_model)
+        predict_edible(X_live, edible_pipe_fe, edible_pipe_model)
         predict_cluster(X_live, cluster_features, cluster_pipe, cluster_profile)
 
 def DrawInputsWidgets():

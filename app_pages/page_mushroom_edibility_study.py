@@ -7,7 +7,6 @@ import plotly.express as px
 
 sns.set_style("whitegrid")
 
-
 def page_mushroom_edibility_study_body():
     """ Page for displaying the mushroom edibility study findings"""
     df = load_mushroom_data()
@@ -19,24 +18,19 @@ def page_mushroom_edibility_study_body():
                      'stalk-surface-above-ring']
 
     st.write("### Mushroom Edibility Study")
-    st.info(
-        f"* The client is interested in understanding the patterns among the logged mushroom database "
-        f" so that they can learn the most relevant variables correlated to an edible mushroom.")
+    st.info(f"* The client is interested in understanding the patterns among the logged mushroom database "
+            f" so that they can learn the most relevant variables correlated to an edible mushroom.")
 
     if st.checkbox("Inspect Mushroom Population"):
-        st.write(
-            f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns, "
-            f"find below the first 10 rows.")
-
+        st.write(f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns, "
+                f"below are the first 10 rows.")
         st.write(df.head(10))
 
     st.write("---")
 
-    st.write(
-        f"* A correlation study was conducted in the notebook to better understand how "
-        f"the variables are correlated to levels of edible mushrooms. \n"
-        f"The most correlated variables are: **{vars_to_study}**"
-    )
+    st.write(f"* A correlation study was conducted in the Mushroom Edibility Study notebook to gain insight into how "
+            f"mushroom variables are correlated to levels of edibility. \n"
+            f"The most correlated variables are: **{vars_to_study}**")
 
     st.info(
         f"The correlation coefficients and the interpretations of the plots below converge."
@@ -53,8 +47,7 @@ def page_mushroom_edibility_study_body():
         edible_level_per_variable(df_eda)
 
     if st.checkbox("Parallel Plot"):
-        st.write(
-            f"* Information in yellow indicates the profile from an edible mushroom")
+        st.write(f"* Information in yellow indicates the profile of an edible mushroom")
         parallel_plot_edible(df_eda)
 
 
@@ -68,8 +61,7 @@ def edible_level_per_variable(df_eda):
 def plot_categorical(df, col, target_var):
     """ Plots distribution of categorical variables with respect to a target variable """
     fig, axes = plt.subplots(figsize=(12, 5))
-    sns.countplot(data=df, x=col, hue=target_var,
-                  order=df[col].value_counts().index)
+    sns.countplot(data=df, x=col, hue=target_var, order=df[col].value_counts().index)
     plt.xticks(rotation=90)
     plt.title(f"{col}", fontsize=20, y=1.05)
     st.pyplot(fig)
