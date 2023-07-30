@@ -1,28 +1,30 @@
 # **Mushroom Safety**
-![Mushroom Image](https://i.pinimg.com/originals/83/1d/42/831d42fa56e68793b9cf4949d596c120.png)
+![Mushroom Image](assets/mushroom-readme.png)
 
 ## Summary
 
 <a href="https://mushroom-safety-a3c88f9ac249.herokuapp.com/">mushroom-safety</a> is a dashboard application that enables an wild mushroom harvesting business to analyse various properties of mushrooms to determine whether they are edible or poisonous. The project was agreed to achieve the following objectives for the company:
 
-- gives the company visual insight into what aspects of mushrooms generally indicate if they are likely to be edible
-- allows the company to determine the probability a mushroom will be edible or not based on information that gan be gathered from visually categorizing the mushroom
-- allows the company to group similar mushroom types together
+- gives the company visual insight into what aspects of mushrooms generally indicate if they are likely to be edible.
+- allows the company to determine the probability a mushroom will be edible or not based on information that gan be gathered from visually categorizing the mushroom.
+- allows the company to group similar mushroom types together.
 
 ## Dataset Content
+<img src="assets/mushroom-diagram.jpg" height=300px float=left/> 
 
 The dataset was sourced from the <a href="https://www.kaggle.com/datasets/uciml/mushroom-classification" target="_blank" rel="noreferrer">Mushroom Classification dataset</a> on <a href="https://www.kaggle.com" target="_blank" rel="noreferrer">kaggle</a>. Each row represents a mushroom, with each column representing physical attributes of the mushrooms, which include:
 
-- The appearance of the <a href="https://en.wikipedia.org/wiki/Pileus_(mycology)">cap</a>, the structure that forms the head of the mushrooma
+- The appearance of the <a href="https://en.wikipedia.org/wiki/Pileus_(mycology)">cap</a>, the structure that forms the head of the mushroom
 - The bruising on the mushroom
 - The mushroom's odor
 - The appearance of the mushroom's <a href="https://en.wikipedia.org/wiki/Lamella_(mycology)">gills</a>, the structures that hang vertically under the cap
 - The appearance of the mushroom's <a href="https://en.wikipedia.org/wiki/Stipe_(mycology)">stipe</a>, aka the stalk
+- The appearance of the mushroom's <a href="https://en.wikipedia.org/wiki/Volva_(mycology)">volva</a>, aka the stalk root
 - The appearance of the mushroom's <a href="https://en.wikipedia.org/wiki/Veil_(mycology)">veil</a>, the membrane that covers the cap and the stalk
 - The appearance of the mushroom's <a href="https://en.wikipedia.org/wiki/Annulus_(mycology)">annulus</a>, the ring(s) that are seen on the stalk
 - The mushrooms's <a href="https://en.wikipedia.org/wiki/Spore_print">spore print</a> color
 - The mushroom's population, ie. how many of the same type were found in the area
-- The habitat the mushroom was found in.
+- The habitat the mushroom was found in
 
 | Variable                    | Meaning                                                                                     | Units                                                                                        |
 | --------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
@@ -49,6 +51,7 @@ The dataset was sourced from the <a href="https://www.kaggle.com/datasets/uciml/
 | spore-print-color | The color of the mushroom's spore print | Character: 'k' - black, 'n' - brown, 'b' - buff, 'h' - chocolate, 'r' - green, 'o' - orange, 'u' - purple, 'w' - white, 'y' - yellow |
 | population | The number of mushroom's of the same type in the location it was found | Character: 'a' - abundant, 'c' - clustered, 'n' - numerous, 's' - scattered, 'v' - several, 'y' - solitary |
 | habitat | The habitat the mushroom was found in | Character: 'g' - grasses, 'l' - leaves, 'm' - meadows, 'p' - paths, 'u' - urban, 'w' - waste, 'd' - woods |
+| | | |
 
 - **Project Terms & Jargon**
   - A mushroom describes any which has been picked by the company and physically classified using the above table of variables
@@ -58,40 +61,39 @@ The dataset was sourced from the <a href="https://www.kaggle.com/datasets/uciml/
 
 ## Business Requirements
 
-A fictitious client for this project is a highly data-driven artisanal wild mushroom harvesting business that is seeking a reliable means to classify whether the Agaricus and Lepiota mushrooms they pick are edible or poisonous. They want to avoid selling toxic mushrooms to their customers, but also wish to avoid paying for costly toxicity screening or hiring expert mycologists to correctly identify mushrooms, and would prefer a cheap and reliable model to determine whether mushrooms are safe to eat. When a mushroom is picked, the picker will classify the mushroom based on it's physical characteristics, using set categories provided by the client. This information is logged, and then the mushroom is tested on cell cultures to determine if it is poisonous or not. 
+A fictitious client for this project is a highly data-driven artisanal wild mushroom harvesting business that is seeking a reliable means to classify whether the Agaricus and Lepiota mushrooms they pick are edible or poisonous. They want to avoid selling toxic mushrooms to their customers, but also wish to avoid hiring expert mycologists to correctly identify mushrooms, and would prefer a cheap and reliable model to determine whether mushrooms are safe to eat. 
+
+When a mushroom is picked, the picker will classify the mushroom based on it's physical characteristics, using set categories provided by the client. This information is logged, and then the mushroom is tested on cell cultures to determine if it is poisonous or not. Such toxicity screening is costly, and the client would rather replace this testing with a far cheaper alternative by leveraging predictive analytics on the considerable database of mushrooms they have already documented.
 
 The client has shared a mushroom database containing information pertaining to the physical characteristics of the mushrooms and whether they were classed as edible or poisonous.
 
-- **1** The client would like to better understand the patterns in the mushroom database so that the client can learn the variables of a mushroom most likely to be edible. This will help their picking team know what characteristics to look for and focus on picking.
+- **1** The client would like to better understand the patterns in the mushroom database so that the client can learn the variable categories of a mushroom most likely to be edible. This will help their picking team know what characteristics to look for and focus on picking.
 
 - **2** The client would like to determine whether a given mushroom is edible. It is essential that any means of doing this has a false positive rate of zero, as the client does not want to inadvertently sell poisonous mushrooms mistakenly identified as edible.
 
-- **3** The client has informed us that there are 23 distinct species of mushroom in the dataset. They want to investigate if these 23 species can be identified from the variables supplied by cluster analysis, and the rates of edibility among each identified cluster. 
+- **3** The client has informed us that there are a number of distinct species of mushroom in the dataset. They want to investigate if these species can be identified from the variables supplied by use of cluster analysis, and to determine the rates of edibility among each identified cluster. Ideally, this will allow the picking team to identify certain heuristics for selecting edible mushrooms.
 
 ## Hypothesis and how to validate?
 
 - 1 - It's suspected that edible mushrooms typically have no odor.
-  - Viewing the average rate of edibility among mushrooms with a no odor compared to those with odors, combined with a correlation study may be used to investigate this.
+  - Viewing the rate of edibility among mushrooms with no odor, combined with a correlation study may be used to investigate this.
 - 2 - It's suspected that poisonous mushrooms typically have a silky stalk surface consistency above their stalk ring.
-  - Viewing the average rate of edibility among mushrooms with a silky stalk consistency above the stalk ring compared to those with other stalk surfaces, combined with a correlation study may be used to investigate this.
+  - Viewing the rate of edibility among mushrooms with a silky stalk consistency above the stalk ring, combined with a correlation study may be used to investigate this.
 
 ## The rationale to map the business requirements to the Data Visualizations and ML tasks
 
 - **Business Requirement 1:** Data visualization and correlation study
-
   - We will inspect the data related to the logged mushrooms.
   - We will conduct a correlation study (Pearson and Spearman) to understand better how the variables are correlated to edibility.
   - We will plot the main variables that correlate to edibility to visualize insights.
 
-- **Business Requirement 2:** Classification analysis
-
+* **Business Requirement 2:** Classification analysis
   - We want to predict if a given mushroom will be edible or poisonous. We will build a binary classifier.
 
 - **Business Requirement 3:** Cluster analysis
-
-  - We want to investigate if there distinct groups of similar mushrooms by unsupervised learning. We are told b
+  - We want to investigate if there distinct groups of similar mushrooms by unsupervised learning.
   - When these distinct groups are identified, we want to build a classifier that can identify which group a mushroom belongs to.
-  - We then wish to investigate if the rates of edibility among clusters of similar mushrooms.
+  - We then wish to investigate if the rates of edibility among clusters of similar mushrooms, and find which variable categories most strongly predict the cluster a mushroom belongs to.
 
 ## ML Business Case
 
@@ -102,8 +104,8 @@ The client has shared a mushroom database containing information pertaining to t
 - We want an ML model to predict if a mushroom is edible based on historical data from the mushrooms the client has logged. The target variable is categorical and contains 2 classes. We consider a **classification model**. It is a supervised, 2-class, single label, classification model with outputs of 0 (poisonous) or 1 (edible).
 - The ideal outcome is to provide the picking team with reliable insight into the best profile of an edible mushroom for focusing on picking.
 - The model success metrics: 
-  - at least a precision of 1 for ediblility, on train and test set - no false positives
-  - at least a recall of 0.9 for edibility, on train and test set - minimum false negatives
+  - at least a precision of 1 for ediblility, on train and test set - ie. a false positive rate of zero
+  - at least a recall of 0.9 for edibility, on train and test set - ie. a minimized false negative rate
   - The ML model is considered a failure if:
     - after 3 months of test usage, any newly picked mushrooms identified as edible come up as poisonous in a toxicity screen (even if model performs perfectly on the provided mushroom data, this will indicate what it has learned is not generalizable to a wider population of mushrooms)
     - after 3 months of test usage, more than 20% of newly picked mushrooms identified as poisonous come up as edible in a toxicity screen (don't want a model that discards too many perfectly edible mushrooms for no reason)
@@ -116,21 +118,21 @@ The client has shared a mushroom database containing information pertaining to t
 
 #### Clustering Model
 
-- We want an ML model to identify the various clusters that exist in the data to see if these correspond to distinct groups of mushrooms that might be labelled as species. We consider a **clustering model**, which is unsupervised. 
-- The ideal outcome is to provide the client with reliable insight into whether the variables their pickers are collecting can identify the mushroom's species.
+- We want an ML model to identify the various clusters that exist in the data to see if these correspond to distinct groups of mushrooms. We consider a **clustering model**, which is unsupervised. 
+- The ideal outcome is to provide the client with reliable insight into whether the variables their pickers are collecting can identify similar mushrooms, and what are the rates of edibility among the clusters obtained.
 - The model success metrics:
   - An average silhouette score of at least 0.5 among all clusters
   - The ML model is considered a failure if:
     - Distinct clusters are not successfully identified at the given mean silhouette score.
   - The output is defined as a flag, indicating which unlabeled cluster a mushroom belongs to. The picking team will have the dashboard available via their smartphone web browser, enabling them to enter mushroom information in the field as they are collected. The prediction is made on the fly (not for batches).
   - The training data to fit the model comes from the mushroom picking company. This dataset contains approximately 8000 logged mushrooms.
-    - Train data - features: `cap-shape`, `cap-surface`, `cap-color`, `bruises`, `odor`, `gill-attachment`, `gill-spacing`, `gill-size`, `gill-color`, `stalk-shape`, `stalk-root`, `stalk-surface-above-ring`, `stalk-surface-below-ring`, `stalk-color-above-ring`, `stalk-color-below-ring`, `veil-type`, `veil-color`, `ring-number`, `ring-type`, `spore-print-color`, `population`, `habitat`
+    - Train data - features: `class`, `cap-shape`, `cap-surface`, `cap-color`, `bruises`, `odor`, `gill-attachment`, `gill-spacing`, `gill-size`, `gill-color`, `stalk-shape`, `stalk-root`, `stalk-surface-above-ring`, `stalk-surface-below-ring`, `stalk-color-above-ring`, `stalk-color-below-ring`, `veil-type`, `veil-color`, `ring-number`, `ring-type`, `spore-print-color`, `population`, `habitat`
 
 ### Classify Mushroom
 
 #### Classification Model
 
-- We want an ML model to predict the cluster a mushroom belongs to. The target variable is categorical and will contain the number of classes determined as suitable from Cluster Mushroom. We consider a **classification model**. It is a supervised, multi-class, single label, classification model, with integer outputs corresponding to each unlabeled cluster.
+- We want an ML model to predict the cluster a mushroom belongs to **when we do not know if it is edible or poisonous**. The target variable is categorical and will contain the number of classes determined as suitable from Cluster Mushroom. We consider a **classification model**. It is a supervised, multi-class, single label, classification model, with integer outputs corresponding to each unlabeled cluster.
 - The ideal outcome is to provide the picking team with a reliable method of identifying which clusters the mushrooms they pick belong to.
 - The model success metrics:
   - An average recall of 0.7 among all clusters
@@ -151,7 +153,7 @@ The client has shared a mushroom database containing information pertaining to t
 
 ### Page 2: Mushroom Edibility Study
 
-- Need this page to answer business requirment 1. Will need to display plots that correlate mushroom variables to edibility
+- Need this page to answer business requirement 1. Will need to display plots that correlate mushroom variables to edibility
 - Agreed with stakeholders that this page will:
   - State business requirement 1
   - Checkbox: data inspection (displays the number of rows and columns in dataset, as well as first ten rows of data)
@@ -177,18 +179,18 @@ The client has shared a mushroom database containing information pertaining to t
 - Considerations and conclusions after pipeline is trained
 - Present ML pipeline steps
 - Feature importance
-- Pipeline importance
+- Pipeline performance
 
 ### Page 6: ML: Mushroom Cluster Analysis
 
 - Considerations and conclusions after pipeline is trained
 - Present ML pipeline steps
 - Feature importance
-- Pipeline importance
+- Pipeline performance
 
 ## Unfixed Bugs
 
-- You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable to consider, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
+- There is no known unfixed bugs in the project.
 
 ## Deployment
 
@@ -228,10 +230,15 @@ The client has shared a mushroom database containing information pertaining to t
 
 ### Content
 
-- 
-
+- The structure of this project draws heavily from Walkthrough Project 02 - Churnometer. Many of the functions for manipulating data stuctures, plotting, cross-validating and testing the models, and the python scripts for displaying the streamlit dashboard app, as well as the structure of the jupyter notebooks, take inspiration and largely borrow from it. However, I have modified code where appropriate and cut out unnecessary blocks that serve no function on this project, along with making numerous modifications were needed. I have also documented the functions in the project to demonstrate my working knowledge of their operation.
+- [Stack Overflow](https://stackoverflow.com/) was used to answer various queries about how to use various libraries used in the project.
+- [Towards Data Science](https://towardsdatascience.com) was used to refresh my understanding of various statistical concepts, and also to find the Target Encoding I used throughout the project. 
+- The [Pandas Documentation](https://pandas.pydata.org/pandas-docs/stable/index.html) was consulted for various functionality in manipulating DataFrames.
+- The [Scikit Learn Documentation](https://scikit-learn.org/stable/index.html) was consulted for understanding inputs for various classes and methods used in the project, notably the hyperparameters for my chosen classification algorithm. 
+- The [Seaborn Documentation](https://seaborn.pydata.org/index.html) was consulted for understanding various plotting functions used in the project.
 ### Media
 
+- The image at the top of this README was sourced from [Pinterest](https://www.pinterest.ie/pin/63894888434725002/)
 - 
 
 ## Acknowledgements

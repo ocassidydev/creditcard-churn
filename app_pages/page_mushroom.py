@@ -16,9 +16,9 @@ def page_mushroom_body():
 
     st.write("### Mushroom Edibility Interface")
     st.info(f"* The client is interested in determining whether a given mushroom is edible or poisonous.\n"
-            f"* The client would also like to know which unlabelled cluster of similar mushrooms a given " 
+            f"* The client would also like to know which cluster of similar mushrooms a given " 
             f"mushroom belongs to, in order to group mushrooms similar in appearance and heurestically "
-            f"rule out/target certain mushrooms for harvesting if their cluster tends to be poisonous/edible" )
+            f"rule out/target certain mushrooms for harvesting if their cluster tends to be poisonous/edible." )
     st.write("---")
 
     X_live = DrawInputsWidgets()

@@ -38,7 +38,7 @@ def predict_cluster(X_live, cluster_features, cluster_pipeline, cluster_profile)
 
     statement = (f"* Historically, **mushrooms in clusters 0, 2, 5 and 6 are usually edible**,"
                 f" whereas **mushrooms in cluster 1 are always edible**, and in **clusters"
-                f" 3 and 4 mushrooms are almost always poisonous**")
+                f" 3 and 4 mushrooms are almost always poisonous**.")
     st.success(statement)
 
 
@@ -51,7 +51,7 @@ def predict_cluster(X_live, cluster_features, cluster_pipeline, cluster_profile)
 def cluster_statement(cluster_num):
     """ Takes predicted cluster and returns some general facts about the cluster from the analysis in the cluster mushroom workbook """
     if cluster_num == 0:
-        statement = (f"- Mushrooms in cluster 0:\n"
+        statement = (f"**Mushrooms in cluster 0:**\n"
                     f"\t- are either in populations of several or solitary.\n"
                     f"\t- typically have broad gill sizes\n"
                     f"\t- typically have a bulbous stalk root\n"
@@ -61,7 +61,7 @@ def cluster_statement(cluster_num):
                     f"\t- are usually found in the woods, occasionally in urban or grass habitats.\n"
                     f"\t- **are usually edible (86% of cluster), but may occasionally be poisonous (14% of cluster)**.")
     elif cluster_num == 1:
-        statement = (f"\t* Mushrooms in cluster 1:\n"
+        statement = (f"**Mushrooms in cluster 1:**\n"
                     f"\t- are either in populations of clustered or several.\n"
                     f"\t- have broad gill sizes.\n"
                     f"\t- have missing stalk roots.\n"
@@ -71,7 +71,7 @@ def cluster_statement(cluster_num):
                     f"\t- are found in leaves habitats.\n"
                     f"\t- **are always edible (100% of cluster)**.")
     elif cluster_num == 2:
-        statement = (f"\t- Mushrooms in cluster 2:\n"
+        statement = (f"**Mushrooms in cluster 2:**\n"
                     f"\t- tend to be in populations of scattered, but are also observed in numerous and several.\n"
                     f"\t- usually have broad gill sizes, but may be narrow.\n"
                     f"\t- tend to have a club stalk root, but also may be equal, or rooted.\n"
@@ -81,7 +81,7 @@ def cluster_statement(cluster_num):
                     f"\t- tend to be found in grasses habitat, but may also be found in meadows, or urban.\n"
                     f"\t- **are usually edible (74%), but may be poisonous (26% of cluster)**.")
     elif cluster_num == 3:
-        statement = (f"\t* Mushrooms in cluster 3:\n"
+        statement = (f"**Mushrooms in cluster 3:**\n"
                     f"\t- are either in populations of several or solitary.\n"
                     f"\t- typically have broad gill sizes.\n"
                     f"\t- typically have a bulbous stalk root.\n"
@@ -91,7 +91,7 @@ def cluster_statement(cluster_num):
                     f"\t- are either found in woods, paths, or grasses habitats.\n"
                     f"\t- **are almost always poisonous (99% of cluster)**.")
     elif cluster_num == 4:
-        statement = (f"\t- Mushrooms in cluster 4:\n"
+        statement = (f"**Mushrooms in cluster 4:**\n"
                     f"\t- are typically in populations of several.\n"
                     f"\t- have narrow gill sizes.\n"
                     f"\t- typically have a missing stalk root.\n"
@@ -101,7 +101,7 @@ def cluster_statement(cluster_num):
                     f"\t- are either found in woods, leaves, or paths habitats.\n"
                     f"\t- **are almost always poisonous (98% of cluster)**.")
     elif cluster_num == 5:
-        statement = (f"\t* Mushrooms in cluster 5:\n"
+        statement = (f"**Mushrooms in cluster 5:**\n"
                     f"\t- tend to be found in populations of either clustered, numerous, or scattered.\n"
                     f"\t- have broad gill sizes.\n"
                     f"\t- usually have a missing stalk root, but may also have a bulbous stalk root.\n"
@@ -110,7 +110,7 @@ def cluster_statement(cluster_num):
                     f"\t- mostly have a pendant stalk ring(s), but may have an evanescent.\n"
                     f"\t- **are usually edible (88% of cluster), but may occasionally be poisonous (12% of cluster)**.")
     else:
-        statement = (f"\t- Mushrooms in cluster 6:\n"
+        statement = (f"**Mushrooms in cluster 6:**\n"
                     f"\t- are usually found in either populations of scattered or abundant, but may be found in several.\n"
                     f"\t- usually have broad gill sizes, but may have narrow.\n"
                     f"\t- usually have an equal stalk root, but may have bulbous.\n"

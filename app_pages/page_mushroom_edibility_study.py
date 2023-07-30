@@ -19,7 +19,9 @@ def page_mushroom_edibility_study_body():
 
     st.write("### Mushroom Edibility Study")
     st.info(f"* The client is interested in understanding the patterns within the logged mushroom database "
-            f" so that they can learn the most relevant variables correlated to an edible mushroom.")
+            f" so that they can learn the most relevant variables correlated to an edible mushroom.\n"
+            f"Performing this analysis answers Business Case 1 by revealing patterns in the dataset "
+            f"that indicate which mushroom categories are the strongest indicators of edibility.")
 
     if st.checkbox("Inspect Mushroom Population"):
         st.write(f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns, "
@@ -33,21 +35,24 @@ def page_mushroom_edibility_study_body():
             f"The most correlated variables are: **{vars_to_study}**")
 
     st.info(
-        f"The correlation coefficients and the interpretations of the plots below converge."
+        f"The correlation coefficients and the interpretations of the plots below converge. "
         f"It is indicated that: \n"
-        f"* Mushrooms with `buff` for `gill color` are most liable to be poisonous \n"
-        f"* Mushrooms with `foul` for `odor` are most liable to be poisonous \n"
-        f"* Mushrooms with `pendant` for `ring-type` have the best chance of being edible \n"
-        f"* Mushrooms with `buff` for `spore-print-color` have the best chance of being edible \n"
-        f"* Mushrooms with `silky` for `stalk-surface-above-ring` are most liable to be poisonous \n")
+        f"* Mushrooms with **`buff`** for **`gill-color`** are most liable to be poisonous.\n"
+        f"* Mushrooms with **`foul`** for **`odor`** are most liable to be poisonous.\n"
+        f"* Mushrooms with **`pendant`** for **`ring-type`** have the best chance of being edible.\n"
+        f"* Mushrooms with **`buff`** for **`spore-print-color`** have the best chance of being edible.\n"
+        f"* Mushrooms with **`silky`** for **`stalk-surface-above-ring`** are most liable to be poisonous.\n")
 
     df_eda = df.filter(vars_to_study + ['edible'])
 
-    if st.checkbox("Edibility Levels per Variable"):
+    if st.checkbox("Edibility levels per variable"):
+        st.success(f"These plots display the frequency of edible (**`edible=1`*) and poisonous (**`edible=0`**) "
+                    f"mushrooms for categories of the 5 variables found to be most correlated to a mushrooms edibiility.")
         edible_level_per_variable(df_eda)
 
     if st.checkbox("Parallel Plot"):
-        st.write(f"* Information in yellow indicates the profile of an edible mushroom")
+        st.success(f"This plot shows the connections between mushroom categories for the variables found to be most correlated to a mushrooms edibiility.\n"
+                f"* Information in yellow indicates the profile of an edible mushroom.")
         parallel_plot_edible(df_eda)
 
 
