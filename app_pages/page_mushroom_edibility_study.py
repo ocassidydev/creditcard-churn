@@ -18,7 +18,7 @@ def page_mushroom_edibility_study_body():
                      'stalk-surface-above-ring']
 
     st.write("### Mushroom Edibility Study")
-    st.info(f"* The client is interested in understanding the patterns among the logged mushroom database "
+    st.info(f"* The client is interested in understanding the patterns within the logged mushroom database "
             f" so that they can learn the most relevant variables correlated to an edible mushroom.")
 
     if st.checkbox("Inspect Mushroom Population"):

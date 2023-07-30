@@ -37,87 +37,87 @@ def predict_cluster(X_live, cluster_features, cluster_pipeline, cluster_profile)
     st.write(statement)
 
     statement = (f"* Historically, **mushrooms in clusters 0, 2, 5 and 6 are usually edible**,"
-                f"whereas **mushrooms in cluster 1 are always edible**, and in **clusters"
-                f" 3 and 4 mushrooms are almost always poisonous")
+                f" whereas **mushrooms in cluster 1 are always edible**, and in **clusters"
+                f" 3 and 4 mushrooms are almost always poisonous**")
     st.success(statement)
 
 
     statement = cluster_statement(cluster_prediction[0])
     st.info(statement)
 
-    cluster_profile.index = [" "] * len(cluster_profile)
+    # cluster_profile.index = [" "] * len(cluster_profile)
     st.table(cluster_profile)
 
 def cluster_statement(cluster_num):
     """ Takes predicted cluster and returns some general facts about the cluster from the analysis in the cluster mushroom workbook """
     if cluster_num == 0:
-        statement = (f"- Mushrooms in cluster 0:"
-                    f"\t- are either in populations of several or solitary"
-                    f"\t- typically have broad gill sizes"
-                    f"\t- typically have a bulbous stalk root"
-                    f"\t- typically have close gill spacing"
-                    f"\t- tend to have a stalk color below the ring of white, but can also have gray, or pink. "
-                    f"\t- have pendant stalk ring(s)"
-                    f"\t- are usually found in the woods, occasionally in urban or grass habitats."
-                    f"\t- **are usually edible (86% of cluster), but may occasionally be poisonous (14% of cluster)**")
+        statement = (f"- Mushrooms in cluster 0:\n"
+                    f"\t- are either in populations of several or solitary.\n"
+                    f"\t- typically have broad gill sizes\n"
+                    f"\t- typically have a bulbous stalk root\n"
+                    f"\t- typically have close gill spacing\n"
+                    f"\t- tend to have a stalk color below the ring of white, but can also have gray, or pink.\n"
+                    f"\t- have pendant stalk ring(s).\n"
+                    f"\t- are usually found in the woods, occasionally in urban or grass habitats.\n"
+                    f"\t- **are usually edible (86% of cluster), but may occasionally be poisonous (14% of cluster)**.")
     elif cluster_num == 1:
-        statement = (f"\t* Mushrooms in cluster 1:"
-                    f"\t- are either in populations of clustered or several"
-                    f"\t- have broad gill sizes"
-                    f"\t- have missing stalk roots"
-                    f"\t- have close gill spacing"
-                    f"\t- have a orange stalk color below the ring"
-                    f"\t- have pendant stalk ring(s)"
-                    f"\t- are found in leaves habitats"
-                    f"\t- **are always edible (100% of cluster)**")
+        statement = (f"\t* Mushrooms in cluster 1:\n"
+                    f"\t- are either in populations of clustered or several.\n"
+                    f"\t- have broad gill sizes.\n"
+                    f"\t- have missing stalk roots.\n"
+                    f"\t- have close gill spacing.\n"
+                    f"\t- have a orange stalk color below the ring.\n"
+                    f"\t- have pendant stalk ring(s).\n"
+                    f"\t- are found in leaves habitats.\n"
+                    f"\t- **are always edible (100% of cluster)**.")
     elif cluster_num == 2:
-        statement = (f"\t- Mushrooms in cluster 2:"
-                    f"\t- tend to be in populations of scattered, but are also observed in numerous and several"
-                    f"\t- usually have broad gill sizes, but may be narrow"
-                    f"\t- tend to have a club stalk root, but also may be equal, or rooted"
-                    f"\t- have a close gill spacing"
-                    f"\t- have a white stalk color below the ring"
-                    f"\t- have pendant stalk ring(s) "
-                    f"\t- tend to be found in grasses habitat, but may also be found in meadows, or urban"
-                    f"\t- **are usually edible (74%), but may be poisonous (26% of cluster)**")
+        statement = (f"\t- Mushrooms in cluster 2:\n"
+                    f"\t- tend to be in populations of scattered, but are also observed in numerous and several.\n"
+                    f"\t- usually have broad gill sizes, but may be narrow.\n"
+                    f"\t- tend to have a club stalk root, but also may be equal, or rooted.\n"
+                    f"\t- have a close gill spacing.\n"
+                    f"\t- have a white stalk color below the ring.\n"
+                    f"\t- have pendant stalk ring(s).\n"
+                    f"\t- tend to be found in grasses habitat, but may also be found in meadows, or urban.\n"
+                    f"\t- **are usually edible (74%), but may be poisonous (26% of cluster)**.")
     elif cluster_num == 3:
-        statement = (f"\t* Mushrooms in cluster 3:"
-                    f"\t- are either in populations of several or solitary"
-                    f"\t- typically have broad gill sizes"
-                    f"\t- typically have a bulbous stalk root"
-                    f"\t- have a close gill spacing"
-                    f"\t- either have brown, buff, or pink stalk color below the ring"
-                    f"\t- typically have a large stalk ring"
-                    f"\t- are either found in woods, paths, or grasses habitats"
-                    f"\t- **are almost always poisonous (99% of cluster)**")
+        statement = (f"\t* Mushrooms in cluster 3:\n"
+                    f"\t- are either in populations of several or solitary.\n"
+                    f"\t- typically have broad gill sizes.\n"
+                    f"\t- typically have a bulbous stalk root.\n"
+                    f"\t- have a close gill spacing.\n"
+                    f"\t- either have brown, buff, or pink stalk color below the ring.\n"
+                    f"\t- typically have a large stalk ring.\n"
+                    f"\t- are either found in woods, paths, or grasses habitats.\n"
+                    f"\t- **are almost always poisonous (99% of cluster)**.")
     elif cluster_num == 4:
-        statement = (f"\t- Mushrooms in cluster 4:"
-                    f"\t- are typically in populations of several"
-                    f"\t- have narrow gill sizes"
-                    f"\t- typically have a missing stalk root"
-                    f"\t- typically have a close gill spacing"
-                    f"\t- either have a white or pink stalk color below the stalk ring"
-                    f"\t- typically have an evanescent stalk ring"
-                    f"\t- are either found in woods, leaves, or paths habitats "
-                    f"\t- **are almost always poisonous (98% of cluster)**")
+        statement = (f"\t- Mushrooms in cluster 4:\n"
+                    f"\t- are typically in populations of several.\n"
+                    f"\t- have narrow gill sizes.\n"
+                    f"\t- typically have a missing stalk root.\n"
+                    f"\t- typically have a close gill spacing.\n"
+                    f"\t- either have a white or pink stalk color below the stalk ring.\n"
+                    f"\t- typically have an evanescent stalk ring.\n"
+                    f"\t- are either found in woods, leaves, or paths habitats.\n"
+                    f"\t- **are almost always poisonous (98% of cluster)**.")
     elif cluster_num == 5:
-        statement = (f"\t* Mushrooms in cluster 5:"
-                    f"\t- tend to be found in populations of either clustered, numerous, or scattered"
-                    f"\t- have broad gill sizes"
-                    f"\t- usually have a missing stalk root, but may also have a bulbous stalk root"
-                    f"\t- either have close or crowded gill spacing"
-                    f"\t- usually have a white stalk color below the stalk ring, but may be red"
-                    f"\t- mostly have a pendant stalk ring(s), but may have an evanescent"
-                    f"\t- **are usually edible (88% of cluster), but may occasionally be poisonous (12% of cluster)**")
+        statement = (f"\t* Mushrooms in cluster 5:\n"
+                    f"\t- tend to be found in populations of either clustered, numerous, or scattered.\n"
+                    f"\t- have broad gill sizes.\n"
+                    f"\t- usually have a missing stalk root, but may also have a bulbous stalk root.\n"
+                    f"\t- either have close or crowded gill spacing.\n"
+                    f"\t- usually have a white stalk color below the stalk ring, but may be red.\n"
+                    f"\t- mostly have a pendant stalk ring(s), but may have an evanescent.\n"
+                    f"\t- **are usually edible (88% of cluster), but may occasionally be poisonous (12% of cluster)**.")
     else:
-        statement = (f"\t- Mushrooms in cluster 6:"
-                    f"\t- are usually found in either populations of scattered or abundant, but may be found in several"
-                    f"\t- usually have broad gill sizes, but may have narrow"
-                    f"\t- usually have an equal stalk root, but may have bulbous"
-                    f"\t- most usually have crowded gill spacings, but may have close"
-                    f"\t- typically have white a white stalk color below the stalk ring"
-                    f"\t- usually have evanescent stalk ring(s), but may have pendant"
-                    f"\t- are usually found in grasses habitat, but may be found in woods or leaves"
-                    f"\t- **are usually edible (89% of cluster), but may occasionally be poisonous (11% of cluster)**")
+        statement = (f"\t- Mushrooms in cluster 6:\n"
+                    f"\t- are usually found in either populations of scattered or abundant, but may be found in several.\n"
+                    f"\t- usually have broad gill sizes, but may have narrow.\n"
+                    f"\t- usually have an equal stalk root, but may have bulbous.\n"
+                    f"\t- most usually have crowded gill spacings, but may have close.\n"
+                    f"\t- typically have white a white stalk color below the stalk ring.\n"
+                    f"\t- usually have evanescent stalk ring(s), but may have pendant.\n"
+                    f"\t- are usually found in grasses habitat, but may be found in woods or leaves.\n"
+                    f"\t- **are usually edible (89% of cluster), but may occasionally be poisonous (11% of cluster)**.")
 
     return statement

@@ -19,8 +19,8 @@ def page_predict_edible_body():
 
     st.write("### ML Pipeline: Predict Mushroom Edibility")
     st.info(
-        f"* The pipeline was tuned aiming at least 1.00 precision on 'edible' class, "
-        f"and a recall of 0.9 on 'edible', since we are interested in this project "
+        f"* The pipeline was tuned aiming at least 1.00 precision on 'edible', "
+        f"and a recall of 0.90 on 'edible', since in this project we are interested "
         f"in detecting a potential edible mushrooms at a high rate with no false positives"
         f"(poisonous mushrooms labelled as edible)\n"
         f"* The pipeline performance on train and test set is a precision=1.00, recall=1.00 "

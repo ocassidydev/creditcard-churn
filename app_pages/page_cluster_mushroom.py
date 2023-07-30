@@ -20,9 +20,8 @@ def page_cluster_mushroom_body():
     df_edible_vs_clusters['Clusters'] = cluster_pipe['model'].labels_
 
     st.write("### ML Pipeline: Cluster Analysis")
-    # display pipeline training summary conclusions
     st.info(f"* We fitted this cluster pipeline onto the dataset with all variables, including edibility.\n"
-            f"* The pipeline average silhouette score is 0.68")
+            f"* The pipeline average silhouette score is 0.52")
     st.write("---")
 
     st.write("#### Cluster ML Pipeline steps")
@@ -49,7 +48,6 @@ def page_cluster_mushroom_body():
                 f"narrow gill sizes, as it is likely such mushrooms likely belong to cluster 4 which is nearly entirely poisonous.\n")
     st.info(statement)
 
-    # text based on "07 - Modeling and Evaluation - Cluster Mushroom" notebook conclusions
     statement = (
                 f"- Mushrooms in cluster 0:\n"
                 f"\t- are either in populations of several or solitary\n"
@@ -116,14 +114,10 @@ def page_cluster_mushroom_body():
     )
     st.success(statement)
 
-    # hack to not display the index in st.table() or st.write()
-    cluster_profile.index = [" "] * len(cluster_profile)
     st.table(cluster_profile)
 
-
-# code coped from "07 - Modeling and Evaluation - Cluster Mushroom" notebook
 def cluster_distribution_per_variable(df, target):
-
+    """ displays the distribution of the target (edibility) among each of the clusters """
     df_bar_plot = df.value_counts(["Clusters", target]).reset_index()
     df_bar_plot.columns = ['Clusters', target, 'Count']
     df_bar_plot[target] = df_bar_plot[target].astype('object')
@@ -133,7 +127,6 @@ def cluster_distribution_per_variable(df, target):
                  color=target, width=800, height=350)
     fig.update_layout(xaxis=dict(tickmode='array',
                       tickvals=df['Clusters'].unique()))
-    # we replaced fig.show() for a streamlit command to render the plot
     st.plotly_chart(fig)
 
     df_relative = (df
@@ -152,5 +145,4 @@ def cluster_distribution_per_variable(df, target):
     fig.update_layout(xaxis=dict(tickmode='array',
                       tickvals=df['Clusters'].unique()))
     fig.update_traces(mode='markers+lines')
-    # we replaced fig.show() for a streamlit command to render the plot
     st.plotly_chart(fig)
