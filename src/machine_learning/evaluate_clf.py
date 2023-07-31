@@ -3,7 +3,9 @@ import pandas as pd
 from sklearn.metrics import classification_report, confusion_matrix
 
 def confusion_matrix_and_report(X, y, pipeline, label_map):
-    """ outputs confusion matrix for a given classifier pipeline """
+    """ 
+    Outputs confusion matrix for a given classifier pipeline 
+    """
     prediction = pipeline.predict(X)
 
     st.write('#### Confusion Matrix')
