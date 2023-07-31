@@ -6,7 +6,10 @@ from src.data_management import load_mushroom_data, load_pkl_file
 
 
 def page_cluster_mushroom_body():
-    """ loads the Cluster Mushroom pipeline and displays its silhouette score"""
+    """
+    Loads the Cluster Mushroom pipeline and displays its silhouette score
+    Taken from Walkthrough Project 02 - Churnometer
+    """
 
     version = 'v1'
     cluster_pipe = load_pkl_file(f"outputs/ml_pipeline/cluster_analysis/{version}/cluster_pipeline.pkl")
@@ -15,14 +18,13 @@ def page_cluster_mushroom_body():
     cluster_profile = pd.read_csv(f"outputs/ml_pipeline/cluster_analysis/{version}/clusters_profile.csv")
     cluster_features = (pd.read_csv(f"outputs/ml_pipeline/cluster_analysis/{version}/TrainSet.csv").columns.to_list())
 
-    # dataframe for cluster_distribution_per_variable()
     df_edible_vs_clusters = load_mushroom_data().filter(['edible'], axis=1)
     df_edible_vs_clusters['Clusters'] = cluster_pipe['model'].labels_
 
     st.write("### ML Pipeline: Cluster Analysis")
     st.info(f"* We fitted this cluster pipeline onto the dataset with all variables, including edibility.\n"
             f"* The pipeline average silhouette score is 0.52. This exceeded the mininum requirements for "
-            f"satisfying Business Requirement 3 and was hence successful in answering the task it was intended to address")
+            f"satisfying Business Requirement 3 and was hence successful in answering the task it was intended to address.")
     st.write("---")
 
     st.write("#### Cluster ML Pipeline steps")
@@ -40,13 +42,14 @@ def page_cluster_mushroom_body():
     st.image(features_to_cluster)
 
     st.write("#### Cluster Profile")
-    statement = (f"* Historically, **mushrooms in clusters 0, 2, 5 and 6 are usually edible**,"
+    statement = (f"* Historically, **mushrooms in clusters 0, 2, 5 and 6 are usually edible**, "
                 f"whereas **mushrooms in cluster 1 are always edible**, and **mushrooms in clusters"
                 f" 3 and 4 mushrooms are almost always poisonous**.\n"
                 f"* From the Predict Edible model, we noticed that included in the predictors of "
                 f"edibility was gill-size, which was also among the predictors for the mushrooms' "
                 f"clusters. A potential action for the picking team would be to discard and avoid any mushrooms with "
-                f"narrow gill sizes, as it is likely such mushrooms likely belong to cluster 4 which is nearly entirely poisonous.\n")
+                f"narrow gill sizes, as from analysing the cluster profiles it is likely such mushrooms belong "
+                f"to cluster 4 which is nearly entirely poisonous.\n")
     st.info(statement)
 
     statement = (
@@ -119,7 +122,10 @@ def page_cluster_mushroom_body():
     st.table(cluster_profile)
 
 def cluster_distribution_per_variable(df, target):
-    """ displays the distribution of the target (edibility) among each of the clusters """
+    """ 
+    Displays the distribution of the target (edibility) among each of the clusters 
+    Taken from Walkthrough Project 02 - Churnometer
+    """
     df_bar_plot = df.value_counts(["Clusters", target]).reset_index()
     df_bar_plot.columns = ['Clusters', target, 'Count']
     df_bar_plot[target] = df_bar_plot[target].astype('object')

@@ -3,8 +3,17 @@ import streamlit as st
 
 def predict_edible(X_live, edible_pipeline_fe, edible_pipeline_model):
     """ 
-    applies the clf pipeline to live data supplied by the user through the widget
-    displays the clf model's output in an interpretable way
+    Applies the classifier pipeline to live data supplied by the user through the widget
+    Displays the classifier model's output in an interpretable way
+    Taken from Walkthrough Project 02 - Churnometer
+
+    Args:
+        X_live: the feature data to predict the target variable for
+        edible_pipeline_fe: the feature engineering pipeline for the data
+        edible_pipeline_model: the classifier pipeline
+
+    Returns:
+        None 
     """
     X_live_edible = X_live.copy()
     X_live_edible_fe = edible_pipeline_fe.transform(X_live_edible)
@@ -25,8 +34,20 @@ def predict_edible(X_live, edible_pipeline_fe, edible_pipeline_model):
 
 def predict_cluster(X_live, cluster_features, cluster_pipeline, cluster_profile):
     """
-    Applies the clustering pipeline to live data supplied by the user through the widget
-    displays the cluster model's output with the proportion of mushrooms in that cluster that are edible/poisonous
+    Applies the cluster classifier pipeline to live data supplied by the user through the widget
+    Displays the classifier model's output with the proportion of mushrooms in that cluster that are edible/poisonous
+    Displays information about the predicted cluster
+    Taken from Walkthrough Project 02 - Churnometer
+
+    Args:
+        X_live: the feature data to predict the target variable for
+        cluster_features: the features to use in the cluster classifer
+        cluster_pipeline: the feature engineering pipeline for the data
+        edible_pipeline_model: the classifier pipeline
+        cluster_profile: a table with information on each cluster's composition
+
+    Returns:
+        None 
     """
     X_live_cluster = X_live.filter(cluster_features)
 
@@ -41,15 +62,22 @@ def predict_cluster(X_live, cluster_features, cluster_pipeline, cluster_profile)
                 f" 3 and 4 are almost always poisonous**.")
     st.success(statement)
 
-
     statement = cluster_statement(cluster_prediction[0])
     st.info(statement)
 
-    # cluster_profile.index = [" "] * len(cluster_profile)
+    cluster_profile.index = [" "] * len(cluster_profile)
     st.table(cluster_profile)
 
 def cluster_statement(cluster_num):
-    """ Takes predicted cluster and returns some general facts about the cluster from the analysis in the cluster mushroom workbook """
+    """ 
+    Takes predicted cluster and returns some general facts about the cluster from the analysis in the cluster mushroom workbook 
+    
+    Args:
+        cluster_num: the number identfying the cluster the mushroom is predicted to belong to
+
+    Returns:
+        statement: a string containing some facts about mushrooms in the predicted cluster
+    """
     if cluster_num == 0:
         statement = (f"**Mushrooms in cluster 0:**\n"
                     f"* are either in populations of several or solitary.\n"

@@ -5,7 +5,10 @@ from src.machine_learning.predictive_analysis_ui import (predict_edible, predict
 
 
 def page_mushroom_body():
-    """ Page for displaying the model input widget and then predictions of edibility and cluster based on user input """
+    """ 
+    Page for displaying the model input widget and then predictions of edibility and cluster based on user input
+    Taken from Walkthrough Project 02 - Churnometer
+    """
     version = 'v1'
     edible_pipe_fe = load_pkl_file(f'outputs/ml_pipeline/predict_edible/{version}/clf_pipeline_feat_eng.pkl')
     edible_pipe_model = load_pkl_file(f"outputs/ml_pipeline/predict_edible/{version}/clf_pipeline_model.pkl")
@@ -19,7 +22,7 @@ def page_mushroom_body():
             f" positive rate of zero, as the client does not want to inadvertently sell poisonous mushrooms mistakenly identified as edible.\n"
             f"* The client has informed us that there are a number of distinct species of mushroom in the dataset. They want to investigate "
             f"if this can be identified by grouping mushrooms with similar categories by means of a cluster algorithm, and to determine the rates "
-            f"of edibility among each identified cluster. Ideally, this will allow the picking team to identify certain categorical heuristics for "
+            f"of edibility among each identified cluster. Ideally, this will provide the picking team with certain categorical heuristics for "
             f"selecting edible mushrooms.")
 
     st.info(f"* The client is interested in determining whether a given mushroom is edible or poisonous.\n"
@@ -35,24 +38,18 @@ def page_mushroom_body():
         predict_cluster(X_live, cluster_features, cluster_pipe, cluster_profile)
 
 def DrawInputsWidgets():
-    """ Creates the widget for the user to input mushroom categorical data, which is then returned for the pipelines to predict on """
+    """ 
+    Creates the widget for the user to input mushroom categorical data, which is then returned for the pipelines to predict on 
+    Adapted from Walkthrough Project 02 - Churnometer
+    """
     df = load_mushroom_data()
 
-    # we create input widgets only for 22 features
     col1, col2, col3, col4 = st.beta_columns(4)
     col5, col6, col7, col8 = st.beta_columns(4)
     col9, col10, col11, col12 = st.beta_columns(4)
     col13, col14, col15, col16 = st.beta_columns(4)
     col17, col18, col19, col20 = st.beta_columns(4)
     col21, col22, col23, col24 = st.beta_columns(4)
-
-    # We are using these features to feed the ML pipeline - values copied from check_variables_for_UI() result
-    # 'cap-shape', 'cap-surface', 'cap-color', 'bruises', 'odor',
-    # 'gill-attachment', 'gill-spacing', 'gill-size', 'gill-color',
-    # 'stalk-shape', 'stalk-root', 'stalk-surface-above-ring',
-    # 'stalk-surface-below-ring', 'stalk-color-above-ring',
-    # 'stalk-color-below-ring', 'veil-type', 'veil-color', 'ring-number',
-    # 'ring-type', 'spore-print-color', 'population', 'habitat'
 
     X_live = pd.DataFrame([], index=[0])
 

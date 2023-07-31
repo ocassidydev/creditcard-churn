@@ -7,7 +7,8 @@ from src.machine_learning.evaluate_clf import clf_performance
 
 def page_predict_edible_body():
     """ 
-        Page for displaying the information about the Predict Edible pipeline's training and model performance 
+    Page for displaying the information about the Predict Edible pipeline's training and model performance 
+    Taken from Walkthrough Project 02 - Churnometer
     """
     version = 'v1'
 

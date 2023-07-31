@@ -115,7 +115,7 @@ When a mushroom is picked, the picker will classify the mushroom based on it's p
 The client has shared a mushroom database containing information pertaining to the physical characteristics of the mushrooms and whether they were classed as edible or poisonous.
 
 ### Business Requirement 1 - Patterns in Dataset
-- The client would like to better understand the patterns in the mushroom database so that the client can learn the variable categories of a mushroom most likely to be edible. This will help their picking team know what mushroom characteristics to look for and focus on picking.
+- The client would like to better understand the patterns in the mushroom database so that they can learn the variable categories of a mushroom most likely to be edible. This will help their picking team know what mushroom characteristics to look for and focus on picking.
 - [User Stories](https://github.com/users/ocassidydev/projects/3/views/1) 1, 2, 6 and 7 are relevant to this requirement.
 
 
@@ -124,7 +124,7 @@ The client has shared a mushroom database containing information pertaining to t
 - [User Stories](https://github.com/users/ocassidydev/projects/3/views/1) 3, 6 and 7 are relevant to this requirement.
 
 ### Business Requirement 3 - Group Mushrooms
-- The client has informed us that there are a number of distinct species of mushroom in the dataset. They want to investigate if this can be identified by grouping mushrooms with similar categories by means of a cluster algorithm, and to determine the rates of edibility among each identified cluster. Ideally, this will allow the picking team to identify certain categorical heuristics for selecting edible mushrooms.
+- The client has informed us that there are a number of distinct species of mushroom in the dataset. They want to investigate if this can be identified by grouping mushrooms with similar categories by means of a cluster algorithm, and to determine the rates of edibility among each identified cluster. Ideally, this will provide the picking team with certain categorical heuristics for selecting edible mushrooms.
 - [User Stories](https://github.com/users/ocassidydev/projects/3/views/1) 4, 5, 6 and 7 are relevant to this requirement.
 
 [Back to top](#table-of-contents)

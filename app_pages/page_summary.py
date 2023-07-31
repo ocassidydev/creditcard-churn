@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 def page_summary_body():
     """
-        Page for displaying the summary of the project.
+    Page for displaying the summary of the project.
     """
     st.write("### Project Summary")
 
@@ -23,13 +23,13 @@ def page_summary_body():
 
     st.success(
         f"The project has 3 business requirements:\n"
-        f"* 1 - The client would like to better understand the patterns in the mushroom database so that the client can learn the variable categories "
+        f"* 1 - The client would like to better understand the patterns in the mushroom database so that they can learn the variable categories "
         f"of a mushroom most likely to be edible. This will help their picking team know what mushroom characteristics to look for and focus on picking.\n"
         f"* 2 - The client would like to determine whether a given mushroom is edible. It is essential that any means of doing this has a false "
         f" positive rate of zero, as the client does not want to inadvertently sell poisonous mushrooms mistakenly identified as edible.\n"
         f"* 3 - The client has informed us that there are a number of distinct species of mushroom in the dataset. They want to investigate "
         f"if this can be identified by grouping mushrooms with similar categories by means of a cluster algorithm, and to determine the rates "
-        f"of edibility among each identified cluster. Ideally, this will allow the picking team to identify certain categorical heuristics for "
+        f"of edibility among each identified cluster. Ideally, this will provide the picking team with certain categorical heuristics for "
         f"selecting edible mushrooms."
         )
 

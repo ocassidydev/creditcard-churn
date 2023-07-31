@@ -8,7 +8,10 @@ import plotly.express as px
 sns.set_style("whitegrid")
 
 def page_mushroom_edibility_study_body():
-    """ Page for displaying the mushroom edibility study findings"""
+    """ 
+    Page for displaying the mushroom edibility study findings
+    Taken from Walkthrough Project 02 - Churnometer
+    """
     df = load_mushroom_data()
 
     vars_to_study = ['gill-color',
@@ -18,8 +21,8 @@ def page_mushroom_edibility_study_body():
                      'stalk-surface-above-ring']
 
     st.write("### Mushroom Edibility Study")
-    st.success(f"* The client would like to better understand the patterns in the mushroom database so that the "
-            f"client can learn the variable categories of a mushroom most likely to be edible. This will help "
+    st.success(f"* The client would like to better understand the patterns in the mushroom database so that "
+            f"they can learn the variable categories of a mushroom most likely to be edible. This will help "
             f"their picking team know what mushroom characteristics to look for and focus on picking.")
     st.info(f"* Performing this analysis answers Business Requirement 1 by revealing patterns in the dataset "
             f"that indicate which mushroom categories are the strongest indicators of edibility.")
@@ -48,11 +51,11 @@ def page_mushroom_edibility_study_body():
 
     if st.checkbox("Edibility levels per variable"):
         st.success(f"These plots display the frequency of edible (**`edible=1`**) and poisonous (**`edible=0`**) "
-                    f"mushrooms for categories of the 5 variables found to be most correlated to a mushrooms edibiility.")
+                    f"mushrooms for categories of the 5 variables found to be most correlated to a mushrooms edibility.")
         edible_level_per_variable(df_eda)
 
     if st.checkbox("Parallel Plot"):
-        st.success(f"This plot shows the connections between mushroom categories for the variables found to be most correlated to a mushrooms edibiility.\n"
+        st.success(f"This plot shows the connections between mushroom categories for the variables found to be most correlated to a mushrooms edibility.\n"
                 f"* Information in yellow indicates the profile of an edible mushroom.")
         parallel_plot_edible(df_eda)
 

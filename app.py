@@ -1,7 +1,6 @@
 import streamlit as st
 from app_pages.multipage import MultiPage
 
-# load page scripts
 from app_pages.page_summary import page_summary_body
 from app_pages.page_mushroom_edibility_study import page_mushroom_edibility_study_body
 from app_pages.page_mushroom import page_mushroom_body
