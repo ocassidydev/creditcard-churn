@@ -47,7 +47,7 @@ def page_mushroom_edibility_study_body():
     df_eda = df.filter(vars_to_study + ['edible'])
 
     if st.checkbox("Edibility levels per variable"):
-        st.success(f"These plots display the frequency of edible (**`edible=1`*) and poisonous (**`edible=0`**) "
+        st.success(f"These plots display the frequency of edible (**`edible=1`**) and poisonous (**`edible=0`**) "
                     f"mushrooms for categories of the 5 variables found to be most correlated to a mushrooms edibiility.")
         edible_level_per_variable(df_eda)
 

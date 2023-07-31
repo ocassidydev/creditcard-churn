@@ -41,10 +41,10 @@ def page_cluster_mushroom_body():
 
     st.write("#### Cluster Profile")
     statement = (f"* Historically, **mushrooms in clusters 0, 2, 5 and 6 are usually edible**,"
-                f"whereas **mushrooms in cluster 1 are always edible**, and mushrooms in **clusters"
+                f"whereas **mushrooms in cluster 1 are always edible**, and **mushrooms in clusters"
                 f" 3 and 4 mushrooms are almost always poisonous**.\n"
                 f"* From the Predict Edible model, we noticed that included in the predictors of "
-                f"edibility was gill-size , which was also among the predictors for the mushrooms' "
+                f"edibility was gill-size, which was also among the predictors for the mushrooms' "
                 f"clusters. A potential action for the picking team would be to discard and avoid any mushrooms with "
                 f"narrow gill sizes, as it is likely such mushrooms likely belong to cluster 4 which is nearly entirely poisonous.\n")
     st.info(statement)

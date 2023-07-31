@@ -25,7 +25,7 @@ def page_classify_mushroom_body():
         f"binary classifier.\n* The pipeline was trained aiming for at least an average recall of 0.7 across all classes.\n"
         f"* The pipeline performance on the test set was a weighted average recall of 0.96.\n"
         f"* As the model performance exceeded the minimum requirements set out for satisfying "
-        f" Business Case 3, it was successful in answering the task it was intended to address."
+        f" Business Requirement 3, it was successful in answering the task it was intended to address."
     )
 
     st.write("---")

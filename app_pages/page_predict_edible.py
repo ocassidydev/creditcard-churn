@@ -25,10 +25,10 @@ def page_predict_edible_body():
         f"and a recall of 0.90 on 'edible', since in this project we are interested "
         f"in detecting a potential edible mushrooms at a high rate with no false positives "
         f"(poisonous mushrooms labelled as edible).\n"
-        f"* The pipeline performance on train and test set was a precision=1.00 recall=1.00, "
+        f"* The pipeline performance on train and test set was precision=1.00 recall=1.00, "
         f"and precision=1.00 recall=1.00, respectively.\n"
         f"* As the model performance exceeded the minimum requirements set out for satisfying "
-        f" Business Case 2, it was successful in answering the task it was intended to address. "
+        f" Business Requirement 2, it was successful in answering the task it was intended to address. "
     )
 
     st.write("---")
