@@ -16,7 +16,7 @@ def page_mushroom_body():
 
     st.write("### Mushroom Edibility Interface")
     st.success(f"* The client would like to determine whether a given mushroom is edible. It is essential that any means of doing this has a false "
-            f" positive rate of zero, as the client does not want to inadvertently sell poisonous mushrooms mistakenly identified as edible."
+            f" positive rate of zero, as the client does not want to inadvertently sell poisonous mushrooms mistakenly identified as edible.\n"
             f"* The client has informed us that there are a number of distinct species of mushroom in the dataset. They want to investigate "
             f"if this can be identified by grouping mushrooms with similar categories by means of a cluster algorithm, and to determine the rates "
             f"of edibility among each identified cluster. Ideally, this will allow the picking team to identify certain categorical heuristics for "

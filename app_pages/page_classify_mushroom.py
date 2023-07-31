@@ -21,11 +21,11 @@ def page_classify_mushroom_body():
 
     st.write("### ML Pipeline: Classify Mushroom Cluster")
     st.info(
-        f"* The pipeline was tuned aiming at least 1.00 precision on 'classify', "
-        f"* The pipeline performance on train and test set was a precision=1.00 recall=1.00, "
-        f"and precision=1.00 recall=1.00, respectively.\n"
+        f"* This pipeline was the same as the Mushroom Ediblity model, only functioning as a multiclass rather than "
+        f"binary classifier.\n* The pipeline was trained aiming for at least an average recall of 0.7 across all classes.\n"
+        f"* The pipeline performance on the test set was a weighted average recall of 0.96.\n"
         f"* As the model performance exceeded the minimum requirements set out for satisfying "
-        f" Business Case 2, it was successful in answering the task it was intended to address. "
+        f" Business Case 3, it was successful in answering the task it was intended to address."
     )
 
     st.write("---")
