@@ -2,6 +2,7 @@
 ![Responsive Image](assets/am-i-responsive.PNG)
 
 * [Live website](https://mushroom-safety-a3c88f9ac249.herokuapp.com/)
+* [User Stories for Project](https://github.com/users/ocassidydev/projects/3/views/1)
 * **Developed by Oran Cassidy July 2023**
 
 ![Mushroom Image](assets/mushroom-readme.png)
@@ -37,6 +38,7 @@
   - [Credits](#credits)
     - [Content](#content)
     - [Media](#media)
+  - [Acknowledgements](#acknowledgements)
 
 <hr> 
 
@@ -114,21 +116,25 @@ The client has shared a mushroom database containing information pertaining to t
 
 ### Business Requirement 1 - Patterns in Dataset
 - The client would like to better understand the patterns in the mushroom database so that the client can learn the variable categories of a mushroom most likely to be edible. This will help their picking team know what mushroom characteristics to look for and focus on picking.
+- [User Stories](https://github.com/users/ocassidydev/projects/3/views/1) 1, 2, 6 and 7 are relevant to this requirement.
+
 
 ### Business Requirement 2 - Prediction of Edibility
 - The client would like to determine whether a given mushroom is edible. It is essential that any means of doing this has a false positive rate of zero, as the client does not want to inadvertently sell poisonous mushrooms mistakenly identified as edible.
+- [User Stories](https://github.com/users/ocassidydev/projects/3/views/1) 3, 6 and 7 are relevant to this requirement.
 
 ### Business Requirement 3 - Group Mushrooms
 - The client has informed us that there are a number of distinct species of mushroom in the dataset. They want to investigate if this can be identified by grouping mushrooms with similar categories by means of a cluster algorithm, and to determine the rates of edibility among each identified cluster. Ideally, this will allow the picking team to identify certain categorical heuristics for selecting edible mushrooms.
+- [User Stories](https://github.com/users/ocassidydev/projects/3/views/1) 4, 5, 6 and 7 are relevant to this requirement.
 
 [Back to top](#table-of-contents)
 <hr>
 
 ## Project Hypothesis
 
-- 1 - It's suspected that edible mushrooms typically have no odor.
+- 1 - It's suspected that mushrooms with no odor are typically edible.
   - Viewing the rate of edibility among mushrooms with no odor, combined with a correlation study may be used to investigate this.
-- 2 - It's suspected that poisonous mushrooms typically have a silky stalk surface consistency above their stalk ring.
+- 2 - It's suspected that mushrooms with a silky stalk surface consistency above their stalk ring are typically poisonous.
   - Viewing the rate of edibility among mushrooms with a silky stalk consistency above the stalk ring, combined with a correlation study may be used to investigate this.
 
 <hr>
