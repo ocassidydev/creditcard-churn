@@ -42,4 +42,5 @@ def page_classify_mushroom_body():
     clf_performance(X_train=X_train, y_train=y_train,
                     X_test=X_test, y_test=y_test,
                     pipeline=classify_pipe,
-                    label_map=["poisonous", "classify"])
+                    label_map=["Cluster 0", "Cluster 1", "Cluster 2", "Cluster 3",
+                            "Cluster 4", "Cluster 5", "Cluster 6"])
